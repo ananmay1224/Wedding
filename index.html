@@ -225,6 +225,12 @@ footer .nav-link{font-size:11px;color:rgba(255,255,255,.4)}
   .btn{padding:11px 24px;font-size:10px}
 }
 
+/* ── Events timeline — mobile ── */
+@media(max-width:768px){
+  .ev-item{flex-direction:column !important;gap:10px !important;flex-wrap:nowrap !important}
+  .ev-time{min-width:unset !important;text-align:left !important;padding:4px 0 4px 10px !important;background:transparent !important;border:none !important;border-left:2px solid var(--gold) !important}
+}
+
 /* Anim delays */
 .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}.delay-5{transition-delay:.5s}
 .anim-1{animation:fadeInUp 1s ease .3s both}
@@ -679,8 +685,8 @@ function buildEvents() {
   days.forEach((day,di) => {
     let h = `<div style="margin-bottom:80px"><div class="reveal" style="text-align:center;margin-bottom:48px"><h3 class="sans" style="font-size:clamp(14px,2.5vw,18px);font-weight:300;color:var(--burgundy);letter-spacing:4px;text-transform:uppercase">${day.day}</h3><div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,var(--burgundy));width:26px"></div><div class="diamond" style="border-color:var(--burgundy)"></div><div class="line" style="background:linear-gradient(90deg,var(--burgundy),transparent);width:26px"></div></div></div>`;
     day.items.forEach((ev,ei) => {
-      h += `<div class="reveal delay-${ei+1}" style="display:flex;gap:32px;margin-bottom:40px;align-items:flex-start;flex-wrap:wrap">
-        <div style="min-width:100px;text-align:center;padding:10px 16px;background:var(--cream);border:1px solid var(--cream-dark)"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);font-weight:300">${ev.time}</span></div>
+      h += `<div class="ev-item reveal delay-${ei+1}" style="display:flex;gap:32px;margin-bottom:40px;align-items:flex-start;flex-wrap:wrap">
+        <div class="ev-time" style="min-width:100px;text-align:center;padding:10px 16px;background:var(--cream);border:1px solid var(--cream-dark)"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);font-weight:300">${ev.time}</span></div>
         <div style="flex:1;min-width:250px"><h4 class="serif" style="font-size:24px;font-weight:500;color:var(--charcoal);margin-bottom:8px">${ev.name}</h4><p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.8;font-weight:300;margin-bottom:12px">${ev.desc}</p>${ev.attire ? `<div style="display:flex;align-items:center;gap:8px"><div style="width:12px;height:12px;background:${ev.color};border-radius:2px;border:1px solid rgba(0,0,0,.1)"></div><span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:1px;font-weight:300">${ev.attire}</span></div>` : ''}</div></div>`;
     });
     h += `</div>`;
