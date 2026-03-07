@@ -234,6 +234,27 @@ footer .nav-link{font-size:11px;color:rgba(255,255,255,.4)}
 .anim-5{animation:fadeInUp 1s ease 1s both}
 .anim-6{animation:fadeInUp 1s ease 1.1s both}
 .anim-7{animation:fadeInUp 1s ease 1.3s both}
+
+/* ═══ Our Story — Full-bleed chapters ═══ */
+.sc{width:100%;overflow:hidden}
+.sc-bleed{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sc-bleed-bg{position:absolute;inset:0;z-index:0}
+.sc-bleed-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.sc-bleed-overlay{position:absolute;inset:0;z-index:1}
+.sc-bleed-content{position:relative;z-index:2;text-align:center;padding:80px 24px;width:100%;max-width:760px;margin:0 auto}
+.sc-split{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:960px;margin:0 auto}
+.sc-label{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:400;display:block;margin-bottom:16px}
+.sc-caption{font-family:'Jost',sans-serif;font-size:11px;color:var(--warm-gray);font-style:italic;margin-top:8px;font-weight:300;letter-spacing:1px}
+.polaroid{background:#fff;padding:10px 10px 32px;box-shadow:0 6px 24px rgba(0,0,0,.15);display:inline-block}
+.polaroid img{display:block;width:100%;object-fit:cover}
+.sc-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:768px){
+  .sc-bleed{min-height:75vh}
+  .sc-split{grid-template-columns:1fr;gap:20px}
+  .sc-bleed-content{padding:60px 20px}
+  .sc-grid-4{grid-template-columns:1fr 1fr}
+  .polaroid{width:120px !important}
+}
 </style>
 </head>
 <body>
@@ -321,15 +342,15 @@ footer .nav-link{font-size:11px;color:rgba(255,255,255,.4)}
         <div style="padding-left:40px">
           <div style="display:flex;gap:24px;margin-bottom:20px;align-items:flex-start;padding-left:16px;border-left:1px solid var(--cream-dark)">
             <span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:2px;min-width:80px;font-weight:300;padding-top:4px">1:30 PM</span>
-            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Check-in</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">Welcome to Ramada by Wyndham, Kasauli</p></div>
+            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Check-in & Welcome Lunch</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">Welcome to Ramada by Wyndham, Kasauli</p></div>
           </div>
           <div style="display:flex;gap:24px;margin-bottom:20px;align-items:flex-start;padding-left:16px;border-left:1px solid var(--cream-dark)">
             <span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:2px;min-width:80px;font-weight:300;padding-top:4px">4:30 PM</span>
-            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Mehendi</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">Celebrate with intricate henna art & festivities</p></div>
+            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Mehendi & High Tea</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">Celebrate with intricate henna art & festivities</p></div>
           </div>
           <div style="display:flex;gap:24px;margin-bottom:20px;align-items:flex-start;padding-left:16px">
             <span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:2px;min-width:80px;font-weight:300;padding-top:4px">8:00 PM</span>
-            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Sangeet & Cocktails</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">An evening of music, dance & celebration</p></div>
+            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Sangeet, Cocktails & Dinner</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">An evening of music, dance & celebration</p></div>
           </div>
         </div>
       </div>
@@ -343,11 +364,11 @@ footer .nav-link{font-size:11px;color:rgba(255,255,255,.4)}
         <div style="padding-left:40px">
           <div style="display:flex;gap:24px;margin-bottom:20px;align-items:flex-start;padding-left:16px;border-left:1px solid var(--cream-dark)">
             <span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:2px;min-width:80px;font-weight:300;padding-top:4px">9:00 AM</span>
-            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Haldi</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">A vibrant turmeric ceremony blessing the couple</p></div>
+            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Haldi Ceremony & Lunch</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">A vibrant turmeric ceremony blessing the couple</p></div>
           </div>
           <div style="display:flex;gap:24px;margin-bottom:20px;align-items:flex-start;padding-left:16px">
             <span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:2px;min-width:80px;font-weight:300;padding-top:4px">5:30 PM</span>
-            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Wedding Ceremony</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">The union of Ananmay & Jennifer</p></div>
+            <div><h4 class="serif" style="font-size:20px;font-weight:500;color:var(--charcoal);margin-bottom:4px">Wedding Ceremony & Dinner</h4><p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.6">The union of Ananmay & Jennifer</p></div>
           </div>
         </div>
       </div>
@@ -479,9 +500,7 @@ footer .nav-link{font-size:11px;color:rgba(255,255,255,.4)}
     </div>
   </section>
 
-  <section class="section" style="background:var(--ivory);position:relative;overflow:hidden">
-    <div class="journey" id="storyContent"></div>
-  </section>
+  <div id="storyContent"></div>
 </div>
 
 <!-- ═══════════ GIFTS PAGE ═══════════ -->
@@ -670,96 +689,149 @@ function buildEvents() {
   setTimeout(initReveals, 50);
 }
 
-// Build Our Story timeline dynamically
+// Build Our Story — full-bleed chapters
 function buildStory() {
   const c = document.getElementById('storyContent');
   if (c.children.length > 0) return;
 
-  const milestones = [
-    {location:"Placeholder City",year:"Placeholder Year",title:"How We Met",text:"Placeholder: Write the story of how you first met. Where were you? What was your first impression?",img:MASK_IMG},
-    {location:"Placeholder City",year:"Placeholder Year",title:"First Date",text:"Placeholder: Describe your first date together. Where did you go? What did you do? What made it special?",img:BAR_CROPPED_IMG},
-    {location:"Placeholder City",year:"Placeholder Year",title:"The Proposal",text:"Placeholder: Tell the story of the proposal. Who planned it? Where did it happen? Was it a surprise?",img:STORY3_IMG},
-    {location:"Kasauli, India",year:"June 2026",title:"The Wedding",text:"And now, we invite you to join us as we write the next chapter of our story — surrounded by the people we love most.",img:STORY1_IMG,isFinal:true},
-  ];
+  const orn = (light) => {
+    const col = light ? 'var(--gold-light)' : 'var(--gold)';
+    return `<div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,${col})"></div><div class="diamond" style="border-color:${col}"></div><div class="line" style="background:linear-gradient(90deg,${col},transparent)"></div></div>`;
+  };
 
-  // Journey path line
-  c.innerHTML = '<div class="journey-path"><div class="journey-path-line"></div></div>';
+  let h = '';
 
-  milestones.forEach((m, i) => {
-    const isFinal = m.isFinal;
-    const isEven = i % 2 === 0;
-    const photoDir = isEven ? 'from-left' : 'from-right';
-    const textDir = isEven ? 'from-right' : 'from-left';
-
-    const imgHtml = m.img
-      ? `<div class="moment-photo-primary"><img src="${m.img}" alt="${m.title}" loading="lazy"></div>`
-      : `<div class="moment-photo-primary" style="aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream),var(--cream-dark));display:flex;align-items:center;justify-content:center;border:1px dashed var(--cream-dark)"><span class="sans" style="font-size:12px;color:var(--warm-gray);letter-spacing:2px;font-weight:300">PHOTO</span></div>`;
-
-    const momentClass = isFinal ? 'moment moment-final' : 'moment';
-
-    c.innerHTML += `
-      <div class="journey-marker" style="top:${i === 0 ? '0' : 'auto'}" id="marker-${i}"></div>
-      <div class="${momentClass}">
-        <div class="moment-photos moment-reveal ${photoDir}">
-          ${imgHtml}
-        </div>
-        <div class="moment-text moment-reveal ${isFinal ? 'from-up' : textDir}">
-          <div class="moment-location">
-            <div class="moment-location-pin"></div>
-            <span class="sans">${m.location}</span>
-          </div>
-          <p class="sans moment-year">${m.year}</p>
-          <h3 class="serif moment-title">${m.title}</h3>
-          <p class="sans moment-desc">${m.text}</p>
-          ${isFinal ? `<div style="margin-top:28px"><button class="btn btn-burg" onclick="goTo('rsvp')">RSVP Now</button></div>` : ''}
-        </div>
-      </div>`;
-  });
-
-  // Final ornamental end cap — small diamond instead of circle
-  c.innerHTML += `
-    <div style="text-align:center;padding:16px 0">
-      <div style="display:inline-flex;align-items:center;gap:10px">
-        <div style="width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));opacity:0.4"></div>
-        <div style="width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg);opacity:0.5"></div>
-        <div style="width:30px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0.4"></div>
+  // ── Chapter 1: Two Worlds ──
+  h += `<div class="sc"><div style="background:var(--ivory);padding:100px 24px 80px">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto">
+      <p class="script" style="font-size:clamp(30px,5vw,48px);color:var(--gold);line-height:1.4;margin-bottom:20px">She crossed one ocean. He crossed another.</p>
+      ${orn(false)}
+      <p class="sans" style="font-size:14px;color:var(--text-muted);line-height:1.9;font-weight:300;margin-top:8px">Two young people, from completely different parts of the world—China and India—set out on a journey to the United States, unaware that along the way they would take their first step toward something truly special.</p>
+    </div>
+    <div class="sc-split reveal delay-2">
+      <div style="text-align:center">
+        <span class="sc-label">Jennifer · China</span>
+        <img src="Pictures/little-jenny-4.jpg" alt="Little Jennifer" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:12px" loading="lazy">
+        <div style="width:58%;margin:0 auto"><img src="Pictures/little-Jenny-1.jpg" alt="Baby Jennifer" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
       </div>
-    </div>`;
+      <div style="text-align:center">
+        <span class="sc-label">Ananmay · India</span>
+        <img src="Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:6px" loading="lazy">
+        <p class="sc-caption">Dreaming big, even then.</p>
+        <div style="width:58%;margin:12px auto 0"><img src="Pictures/little-ananmay-1.jpg" alt="Young Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
+      </div>
+    </div>
+  </div></div>`;
 
-  // Position markers and trim journey path after render
-  requestAnimationFrame(() => {
-    const moments = c.querySelectorAll('.moment');
-    let lastMarkerTop = 0;
-    moments.forEach((moment, i) => {
-      const marker = document.getElementById('marker-' + i);
-      if (marker) {
-        const momentTop = moment.offsetTop;
-        const momentHeight = moment.offsetHeight;
-        const top = momentTop + momentHeight * 0.3;
-        marker.style.top = top + 'px';
-        lastMarkerTop = top;
-      }
-    });
-    // Trim the path line to end at the last marker
-    const pathEl = c.querySelector('.journey-path');
-    if (pathEl && lastMarkerTop > 0) {
-      pathEl.style.bottom = 'auto';
-      pathEl.style.height = (lastMarkerTop + 20) + 'px';
-    }
-  });
+  // ── Chapter 2: Champaign, Illinois ──
+  h += `<div class="sc"><div style="background:var(--cream);padding:100px 24px;text-align:center">
+    <div class="reveal" style="max-width:680px;margin:0 auto">
+      <span class="sc-label">Champaign, Illinois · January 2022</span>
+      <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Champaign, Illinois</h2>
+      ${orn(false)}
+      <p class="sans" style="font-size:14px;color:var(--text-muted);line-height:1.9;font-weight:300">St. Patrick was truly a Saint. Our first meeting happened on one of the craziest days at UIUC—Unofficial St. Patrick's Day. What began as one brief, slightly intoxicated conversation unexpectedly sparked everything that followed. From ECON classes to pottery classes in Chicago, they stayed in touch and kept the fun alive.</p>
+    </div>
+  </div></div>`;
 
-  // Init reveal animations with directional entrance
-  const revealEls = c.querySelectorAll('.moment-reveal');
-  revealEls.forEach(el => {
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        el.classList.add('visible');
-        obs.unobserve(el);
-      }
-    }, { threshold: 0.15 });
-    obs.observe(el);
-  });
+  // ── Chapter 3: The Night Everything Changed (full-bleed) ──
+  h += `<div class="sc sc-bleed reveal">
+    <div class="sc-bleed-bg"><img src="Pictures/concert-back.jpeg" alt="Northcoast Music Festival" loading="lazy"></div>
+    <div class="sc-bleed-overlay" style="background:linear-gradient(180deg,rgba(44,36,32,.35) 0%,rgba(44,36,32,.75) 100%)"></div>
+    <div class="sc-bleed-content">
+      <p class="script" style="font-size:clamp(36px,6vw,60px);color:rgba(232,217,160,.88);margin-bottom:16px;line-height:1.3">Brightest Lights</p>
+      <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:4px;color:rgba(255,255,255,.45);text-transform:uppercase;font-weight:300;display:block;margin-bottom:36px">Northcoast Music Festival · September 2023</span>
+      <h2 class="serif" style="font-size:clamp(26px,4.5vw,42px);font-weight:300;color:var(--cream);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px">The Night Everything Changed</h2>
+      <p class="sans" style="font-size:14px;color:rgba(255,255,255,.72);line-height:1.9;font-weight:300;margin-bottom:48px">Who invites a girl to go to a music festival alone with him? That would be Ananmay Narain. Neither of them quite knew what they were saying yes to at the time, but it turned out to be more than just a beautiful day—it became a turning point for them. They began the day surrounded by the hype of EDM beats and ended it holding hands as Lane 8 had them deep in their feelings. The Uber ride home left them both wondering what life might be like together.</p>
+      <div style="width:200px;margin:0 auto;transform:rotate(-2.5deg)">
+        <div class="polaroid"><img src="Pictures/northcoast-selfie.jpg" alt="Northcoast selfie" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"></div>
+      </div>
+    </div>
+  </div>`;
 
+  // ── Chapter 4: Windy City, Warm Hearts ──
+  h += `<div class="sc"><div style="background:var(--ivory);padding:100px 24px 80px">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="reveal" style="text-align:center;margin-bottom:56px;max-width:700px;margin-left:auto;margin-right:auto">
+        <span class="sc-label">Chicago, Illinois · October 24, 2023</span>
+        <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Windy City, Warm Hearts</h2>
+        ${orn(false)}
+        <p class="sans" style="font-size:14px;color:var(--text-muted);line-height:1.9;font-weight:300">What followed was a wonderful chapter of dating in the Windy City. From German-style Christmas markets to all-you-can-eat sushi and hotpot, they left no culinary adventure unexplored. Almost every night turned into a movie night, and of course, nothing would have been complete without the monster cat, Lucifer.</p>
+      </div>
+      <div class="sc-split reveal delay-1" style="margin-bottom:40px">
+        <img src="Pictures/chicago-standing.jpg" alt="Chicago" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+        <img src="Pictures/christmas.jpeg" alt="Christmas market" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+      </div>
+      <div class="reveal delay-2" style="display:flex;justify-content:center;align-items:flex-start;margin-bottom:40px;padding:20px 0">
+        <div class="polaroid" style="transform:rotate(-4deg);width:180px;flex-shrink:0"><img src="Pictures/bar-goofy.jpeg" alt="Bar night" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"></div>
+        <div class="polaroid" style="transform:rotate(1.5deg);width:180px;flex-shrink:0;margin-left:-24px;margin-top:-16px;position:relative;z-index:2"><img src="Pictures/bar-love.jpeg" alt="Bar night" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"></div>
+        <div class="polaroid" style="transform:rotate(4deg);width:180px;flex-shrink:0;margin-left:-24px;margin-top:8px;position:relative;z-index:1"><img src="Pictures/bar-kiss.jpeg" alt="Bar night" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"></div>
+      </div>
+      <div class="reveal delay-3" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+        <img src="Pictures/lucifer.jpg" alt="Lucifer the cat" style="width:110px;height:110px;object-fit:cover;border-radius:50%;border:2px solid var(--gold-light);flex-shrink:0" loading="lazy">
+        <p class="sans" style="font-size:13px;color:var(--text-muted);font-style:italic;font-weight:300">ft. Lucifer, the monster cat</p>
+      </div>
+    </div>
+  </div></div>`;
+
+  // ── Chapter 5: Worlds Apart (text only) ──
+  h += `<div class="sc"><div style="background:var(--cream-dark);padding:100px 24px;text-align:center">
+    <div class="reveal" style="max-width:680px;margin:0 auto">
+      <div style="width:40px;height:1px;background:var(--gold);opacity:.35;margin:0 auto 40px"></div>
+      <span class="sc-label" style="color:var(--warm-gray)">January 2024 — 2026</span>
+      <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Worlds Apart</h2>
+      ${orn(false)}
+      <p class="sans" style="font-size:14px;color:var(--text-muted);line-height:1.9;font-weight:300">Ananmay eventually had to leave their beautiful life in Chicago and return to India. What followed was a brutal, nearly three-year stretch of long distance. There were many tears and countless emotional moments, but they carried on. They found ways to keep their bond alive—playing Call of Duty together and streaming movies on their cozy little Discord server. Somehow, they always found a way to keep going, because they both knew it was worth it.</p>
+      <div style="width:40px;height:1px;background:var(--gold);opacity:.35;margin:40px auto 0"></div>
+    </div>
+  </div></div>`;
+
+  // ── Chapter 6: A Journey Into His Roots ──
+  h += `<div class="sc">
+    <div style="width:100%;overflow:hidden;max-height:540px"><img src="Pictures/amby-mehendi.jpeg" alt="India" style="width:100%;max-height:540px;object-fit:cover;object-position:center top" loading="lazy"></div>
+    <div style="background:var(--ivory);padding:60px 24px 80px">
+      <div style="max-width:1100px;margin:0 auto">
+        <div class="reveal" style="text-align:center;margin-bottom:48px;max-width:700px;margin-left:auto;margin-right:auto">
+          <span class="sc-label">Gurgaon, India · December 2024</span>
+          <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">A Journey Into His Roots</h2>
+          ${orn(false)}
+          <p class="sans" style="font-size:14px;color:var(--text-muted);line-height:1.9;font-weight:300">After 12 months apart, they were finally reunited in India. Jennifer got her first real taste of butter chicken and met his family—let's just say all the aunties definitely approved. They spent the winter cozied up in Gurgaon, making sure to explore the incredible world of Indian food, which naturally sparked the age-old debate: Indian food or Chinese food?</p>
+        </div>
+        <div class="sc-grid-4 reveal delay-1">
+          <img src="Pictures/home-couch.jpeg" alt="Family home" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+          <img src="Pictures/suit-saari.jpeg" alt="Indian event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+          <img src="Pictures/raji-mehendi.jpg" alt="Mehendi event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+          <img src="Pictures/fam-dinner.jpg" alt="Family dinner" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+  // ── Chapter 7: The Proposal (full-bleed) ──
+  h += `<div class="sc sc-bleed reveal">
+    <div class="sc-bleed-bg"><img src="Pictures/great-wall.jpg" alt="Great Wall of China" loading="lazy"></div>
+    <div class="sc-bleed-overlay" style="background:linear-gradient(180deg,rgba(44,36,32,.2) 0%,rgba(44,36,32,.8) 100%)"></div>
+    <div class="sc-bleed-content">
+      <p class="script" style="font-size:clamp(40px,7vw,68px);color:rgba(232,217,160,.92);margin-bottom:16px;line-height:1.2">She said yes.</p>
+      <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:4px;color:rgba(255,255,255,.45);text-transform:uppercase;font-weight:300;display:block;margin-bottom:36px">China · March 2025</span>
+      <h2 class="serif" style="font-size:clamp(26px,4.5vw,42px);font-weight:300;color:var(--cream);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px">The Proposal</h2>
+      ${orn(true)}
+      <p class="sans" style="font-size:14px;color:rgba(255,255,255,.72);line-height:1.9;font-weight:300">Ananmay decided he had spent enough time in the gray and chose a ring. He flew to China to visit Jennifer, where she had planned a beautiful trip for him—introducing him to the elegance of her culture and, of course, the incredible food. One cozy evening, surrounded by serene views and after perhaps a little too much wine, Ananmay launched into a ten-minute improvised speech that left Jennifer slightly confused—until he finally pulled out the ring. In that moment, she leaped into his arms with tears of joy.</p>
+    </div>
+  </div>`;
+
+  // ── Chapter 8: Kasauli, June 2026 ──
+  h += `<div class="sc"><div style="background:linear-gradient(135deg,var(--burgundy-dark) 0%,var(--burgundy) 100%);padding:100px 24px;text-align:center;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;opacity:.04;background-image:radial-gradient(var(--gold) 1px,transparent 1px);background-size:32px 32px"></div>
+    <div class="reveal" style="max-width:600px;margin:0 auto;position:relative;z-index:1">
+      <div style="width:180px;margin:0 auto 40px;border-radius:4px;overflow:hidden"><img src="Pictures/wedding-logo.jpeg" alt="Ananmay & Jennifer" style="width:100%" loading="lazy"></div>
+      <p class="script" style="font-size:clamp(28px,4vw,44px);color:var(--gold-light);margin-bottom:24px;line-height:1.3">Kasauli, India · June 2026</p>
+      ${orn(true)}
+      <p class="sans" style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.9;font-weight:300;margin-bottom:40px">And now, we invite you to join us in celebrating the next chapter of this incredible story.</p>
+      <button class="btn" onclick="goTo('rsvp')" style="border-color:var(--gold);color:var(--gold)">RSVP Now</button>
+    </div>
+  </div></div>`;
+
+  c.innerHTML = h;
   setTimeout(initReveals, 50);
 }
 
