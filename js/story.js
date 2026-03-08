@@ -27,7 +27,7 @@ function buildStory() {
         <span class="sc-label">Ananmay · India</span>
         <img src="../Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:6px" loading="lazy">
         <p class="sc-caption">Dreaming big, even then.</p>
-        <div style="width:58%;margin:12px auto 0"><img src="../Pictures/little-ananmay-1.jpg" alt="Young Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
+        <div style="width:58%;margin:12px auto 0"><img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
       </div>
     </div>
   </div></div>`;
@@ -103,13 +103,13 @@ function buildStory() {
     </div>
   </div>`;
 
-  // ── Chapter 6: A Journey Into His Roots ──
+  // ── Chapter 6: A Journey Into My Roots ──
   h += `<div class="sc">
     <div style="background:var(--ivory);padding:60px 24px 80px">
       <div style="max-width:1100px;margin:0 auto">
         <div class="reveal" style="text-align:center;margin-bottom:48px;max-width:700px;margin-left:auto;margin-right:auto">
           <span class="sc-label">Gurgaon, India · December 2024</span>
-          <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">A Journey Into His Roots</h2>
+          <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">A Journey Into My Roots</h2>
           ${orn(false)}
           <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">After 12 months apart, we were finally reunited in India. Jennifer got her first real taste of butter chicken and met my family—let's just say all the aunties definitely approved. We spent the winter cozied up in Gurgaon, making sure to explore the incredible world of Indian food, which naturally sparked the age-old debate: Indian food or Chinese food?</p>
         </div>
