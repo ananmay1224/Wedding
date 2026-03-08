@@ -268,7 +268,6 @@ function sendConfirmationEmail(d, groupSize) {
 
   MailApp.sendEmail({
     to: d.email,
-    bcc: 'ananmayandjennifer@gmail.com',
     subject: subject,
     body: plainBody,
     htmlBody: htmlBody,
