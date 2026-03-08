@@ -13,7 +13,7 @@ function buildEvents() {
       {time:"5:30 PM",name:"Wedding Ceremony & Dinner",desc:"The sacred union of Ananmay & Jennifer. Gather with us as we take our vows amidst the beautiful hills of Kasauli, with a celebratory dinner to follow.",attire:"Formal Indian attire — sherwanis, sarees, lehengas, suits",color:"var(--burgundy)"},
     ]},
     { day:"Day Three — June 6, 2026", items:[
-      {time:"8:00 AM",name:"Farewell Breakfast",desc:"A warm, relaxed morning together before we say our goodbyes. Share stories from the celebrations over a leisurely brunch.",attire:"Casual / Comfortable",color:"var(--warm-gray)"},
+      {time:"8:00 AM",name:"Morning Farewell",desc:"A warm, relaxed morning together before we say our goodbyes. Share stories from the celebrations over a leisurely spread.",attire:"Casual / Comfortable",color:"var(--warm-gray)"},
       {time:"11:00 AM",name:"Check-out",desc:"Bid farewell to the mountains. We hope you carry beautiful memories home with you!",attire:null,color:"var(--warm-gray)"},
     ]},
   ];
