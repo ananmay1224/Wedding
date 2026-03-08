@@ -68,6 +68,8 @@ function createGuestBlock(n) {
     <div class="form-group"><label class="form-label">Email <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="email" placeholder="email@example.com" name="g${n}_email"></div>
     <div class="form-group"><label class="form-label">Phone <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" placeholder="+91 XXXXX XXXXX" name="g${n}_phone"></div>
     <div class="form-group"><label class="form-label">Dietary Requirements <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="text" placeholder="Any allergies or dietary preferences" name="g${n}_dietary"></div>
+    <div class="form-group"><label class="form-label">Aadhar / Passport <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="file" accept="image/*,.pdf" name="g${n}_id" style="padding:10px 16px;cursor:pointer"></div>
+    <p class="sans" style="font-size:11px;color:var(--warm-gray);font-weight:300;margin-top:-12px;margin-bottom:16px">Accepted: JPG, PNG, PDF · Max 5 MB</p>
   `;
   return div;
 }
@@ -96,12 +98,20 @@ async function submitRSVP(e) {
   const guestCount = parseInt(document.getElementById('additionalGuestCount')?.value) || 0;
   const guests = [];
   for (let i = 1; i <= guestCount; i++) {
+    const gIdInput = form.querySelector(`[name="g${i}_id"]`);
+    let gIdFile = null, gIdFileName = '';
+    if (gIdInput?.files[0]) {
+      gIdFile = await toBase64(gIdInput.files[0]);
+      gIdFileName = gIdInput.files[0].name;
+    }
     guests.push({
-      name:    form.querySelector(`[name="g${i}_name"]`)?.value || '',
-      age:     form.querySelector(`[name="g${i}_age"]`)?.value || '',
-      email:   form.querySelector(`[name="g${i}_email"]`)?.value || '',
-      phone:   form.querySelector(`[name="g${i}_phone"]`)?.value || '',
-      dietary: form.querySelector(`[name="g${i}_dietary"]`)?.value || '',
+      name:       form.querySelector(`[name="g${i}_name"]`)?.value || '',
+      age:        form.querySelector(`[name="g${i}_age"]`)?.value || '',
+      email:      form.querySelector(`[name="g${i}_email"]`)?.value || '',
+      phone:      form.querySelector(`[name="g${i}_phone"]`)?.value || '',
+      dietary:    form.querySelector(`[name="g${i}_dietary"]`)?.value || '',
+      idFile:     gIdFile,
+      idFileName: gIdFileName,
     });
   }
 
@@ -128,7 +138,20 @@ async function submitRSVP(e) {
 
   fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) })
     .then(r => r.json())
-    .then(() => showThanks(attending))
+    .then(data => {
+      if (data.duplicate) {
+        btn.disabled = false;
+        btn.textContent = 'Send RSVP';
+        const err = document.createElement('p');
+        err.className = 'sans';
+        err.style.cssText = 'color:var(--burgundy);font-size:13px;font-weight:300;text-align:center;margin-top:16px';
+        err.textContent = 'It looks like you\'ve already RSVP\'d. If you need to make changes, please contact us at ananmayandjennifer@gmail.com';
+        err.id = 'duplicateError';
+        if (!document.getElementById('duplicateError')) btn.after(err);
+      } else {
+        showThanks(attending);
+      }
+    })
     .catch(() => showThanks(attending));
 }
 

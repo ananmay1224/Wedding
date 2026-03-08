@@ -72,6 +72,21 @@ function doPost(e) {
     const sheet     = ss.getSheetByName(SHEET_NAME);
     const groupSize = 1 + (Array.isArray(d.guests) ? d.guests.length : 0);
 
+    // Duplicate check — reject if same name OR email already submitted
+    const existing = sheet.getDataRange().getValues();
+    for (let i = 1; i < existing.length; i++) {
+      const rowType  = existing[i][2]; // GuestType column
+      const rowName  = (existing[i][3] || '').toString().trim().toLowerCase();
+      const rowEmail = (existing[i][5] || '').toString().trim().toLowerCase();
+      if (rowType === 'Primary') {
+        const inName  = (d.name  || '').trim().toLowerCase();
+        const inEmail = (d.email || '').trim().toLowerCase();
+        if (rowName === inName || (inEmail && rowEmail === inEmail)) {
+          return jsonOut({ ok: false, duplicate: true });
+        }
+      }
+    }
+
     // Save uploaded ID to Drive (if provided)
     let idUrl = '';
     if (d.idFile && d.idFileName) {
@@ -79,7 +94,7 @@ function doPost(e) {
     }
 
     // Primary guest row
-    sheet.appendRow([
+    appendRow(sheet, [
       d.name,                       // A: SubmittedBy
       groupSize,                    // B: GroupSize
       'Primary',                    // C: GuestType
@@ -97,7 +112,11 @@ function doPost(e) {
     // Additional guest rows
     if (Array.isArray(d.guests) && d.guests.length > 0) {
       d.guests.forEach((g, i) => {
-        sheet.appendRow([
+        let gIdUrl = '';
+        if (g.idFile && g.idFileName) {
+          gIdUrl = saveFileToDrive(g.idFile, g.idFileName, g.name);
+        }
+        appendRow(sheet, [
           d.name,               // A: SubmittedBy (links row back to primary)
           groupSize,            // B: GroupSize
           'Guest ' + (i + 1),  // C: GuestType
@@ -107,7 +126,7 @@ function doPost(e) {
           g.phone   || '',      // G: Phone
           g.dietary || '',      // H: Dietary
           '',                   // I: Attending (n/a for additional guests)
-          '',                   // J: IDFileURL
+          gIdUrl,               // J: IDFileURL
           '',                   // K: Message
           '',                   // L: SubmittedAt
         ]);
@@ -140,6 +159,12 @@ function saveFileToDrive(base64Data, fileName, guestName) {
   } catch (err) {
     return ''; // non-fatal — submission still goes through
   }
+}
+
+// Write a row using RAW mode so phone numbers starting with + are not
+// misinterpreted as formulas by Google Sheets
+function appendRow(sheet, values) {
+  sheet.getRange(sheet.getLastRow() + 1, 1, 1, values.length).setValues([values]);
 }
 
 function jsonOut(obj) {
