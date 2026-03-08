@@ -125,7 +125,7 @@ function doPost(e) {
           g.email   || '',      // F: Email
           g.phone   || '',      // G: Phone
           g.dietary || '',      // H: Dietary
-          '',                   // I: Attending (n/a for additional guests)
+          'yes',                // I: Attending (additional guests are always attending)
           gIdUrl,               // J: IDFileURL
           '',                   // K: Message
           '',                   // L: SubmittedAt
