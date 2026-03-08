@@ -168,9 +168,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--gold)}
 footer{background:var(--charcoal);padding:60px 24px 40px;text-align:center}
 footer .nav-link{font-size:13px;color:rgba(255,255,255,.6)}
 
-/* Page visibility */
-.page{display:none}
-.page.active{display:block}
 
 /* ── Large screens (27"+ monitors, TVs) ── */
 @media(min-width:1600px){

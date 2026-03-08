@@ -148,10 +148,14 @@ function buildStory() {
       <p class="script" style="font-size:clamp(28px,4vw,44px);color:var(--gold-light);margin-bottom:24px;line-height:1.3">Kasauli, India · June 2026</p>
       ${orn(true)}
       <p class="sans" style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.9;font-weight:300;margin-bottom:40px">And now, we invite you to join us in celebrating the next chapter of this incredible story.</p>
-      <button class="btn" onclick="goTo('rsvp')" style="border-color:var(--gold);color:var(--gold)">RSVP Now</button>
+      <button class="btn" onclick="window.location.href='rsvp.html'" style="border-color:var(--gold);color:var(--gold)">RSVP Now</button>
     </div>
   </div></div>`;
 
   c.innerHTML = h;
   setTimeout(initReveals, 50);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('storyContent')) buildStory();
+});

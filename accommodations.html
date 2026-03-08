@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay & Travel — Ananmay & Jennifer</title>
+<meta name="description" content="Accommodation and travel information for the wedding of Ananmay & Jennifer at Ramada by Wyndham, Kasauli.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav class="nav" id="mainNav" style="background:rgba(75,14,26,0.97);padding:12px 0;border-bottom:1px solid rgba(201,168,76,0.15)">
+  <div class="nav-inner">
+    <a href="index.html" class="script" style="font-size:28px;color:var(--gold);text-decoration:none">A & J</a>
+    <div class="nav-links" style="display:flex">
+      <button class="nav-link" onclick="window.location.href='index.html'" data-page="home">Home</button>
+      <button class="nav-link" onclick="window.location.href='events.html'" data-page="events">Events</button>
+      <button class="nav-link active" onclick="window.location.href='accommodations.html'" data-page="accommodations">Stay & Travel</button>
+      <button class="nav-link" onclick="window.location.href='our-story.html'" data-page="our-story">Our Story</button>
+      <button class="nav-link" onclick="window.location.href='rsvp.html'" data-page="rsvp">RSVP</button>
+    </div>
+    <button class="burger" id="burgerBtn" onclick="toggleMenu()">
+      <span id="b1"></span><span id="b2"></span><span id="b3"></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <button class="nav-link" onclick="window.location.href='index.html'">Home</button>
+      <button class="nav-link" onclick="window.location.href='events.html'">Events</button>
+      <button class="nav-link" onclick="window.location.href='accommodations.html'">Stay & Travel</button>
+      <button class="nav-link" onclick="window.location.href='our-story.html'">Our Story</button>
+      <button class="nav-link" onclick="window.location.href='rsvp.html'">RSVP</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ PAGE HEADER ═══════════ -->
+<section class="page-header">
+  <div class="dot-pattern"></div>
+  <div class="reveal" style="position:relative;z-index:1">
+    <p class="script" style="font-size:28px;color:var(--gold-light);margin-bottom:8px">Where to Stay</p>
+    <h2 class="serif" style="font-size:clamp(28px,5vw,42px);color:var(--cream);font-weight:300;letter-spacing:2px;text-transform:uppercase">Stay & Travel</h2>
+    <div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,var(--gold-light))"></div><div class="diamond" style="border-color:var(--gold-light)"></div><div class="line" style="background:linear-gradient(90deg,var(--gold-light),transparent)"></div></div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTENT ═══════════ -->
+<section class="section" style="background:var(--ivory)">
+  <div class="container">
+
+    <!-- Venue Card -->
+    <div class="card reveal" style="text-align:center;margin-bottom:60px">
+      <div class="card-corner tl"></div><div class="card-corner tr"></div><div class="card-corner bl"></div><div class="card-corner br"></div>
+      <p class="script" style="font-size:24px;color:var(--gold);margin-bottom:4px">The Venue</p>
+      <h3 class="serif" style="font-size:32px;font-weight:400;color:var(--charcoal);margin-bottom:8px">Ramada by Wyndham</h3>
+      <p class="sans" style="font-size:13px;color:var(--warm-gray);letter-spacing:2px;font-weight:300;text-transform:uppercase">Kasauli, Himachal Pradesh</p>
+      <div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,var(--gold));width:20px"></div><div class="diamond" style="border-color:var(--gold)"></div><div class="line" style="background:linear-gradient(90deg,var(--gold),transparent);width:20px"></div></div>
+      <div style="text-align:left;max-width:500px;margin:0 auto">
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Check-in</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">June 4, 2026 — 1:30 PM</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Check-out</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">June 6, 2026 — 11:00 AM</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Address</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">VXXR+HC2, Sanwara, Kasauli, Himachal Pradesh 173204</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Phone</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">+91 93134 64284</span></div>
+      </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=30.8989375,76.9910625" target="_blank" class="btn btn-burg" style="margin-top:32px">Get Directions</a>
+    </div>
+
+    <!-- Travel Info -->
+    <div class="section-title reveal"><p class="script" style="font-size:28px;color:var(--gold);margin-bottom:8px">Getting Here</p><h2 class="serif" style="color:var(--charcoal)">Travel Information</h2><div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,var(--gold))"></div><div class="diamond" style="border-color:var(--gold)"></div><div class="line" style="background:linear-gradient(90deg,var(--gold),transparent)"></div></div></div>
+
+    <div class="reveal" style="margin-bottom:36px;padding-left:24px;border-left:2px solid var(--gold-light)">
+      <h4 class="serif" style="font-size:22px;font-weight:500;color:var(--charcoal);margin-bottom:8px">By Air</h4>
+      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.8;font-weight:300">The nearest airport is Shaheed Bhagat Singh International Airport (IXC) in Chandigarh, approximately <strong style="font-weight:600;color:var(--text-dark)">70 km</strong> from Ramada Kasauli. The drive takes approximately <strong style="font-weight:600;color:var(--text-dark)">2 hours</strong>. Cabs can be booked directly from the airport, and Ubers are available as well.</p>
+    </div>
+    <div class="reveal delay-1" style="margin-bottom:36px;padding-left:24px;border-left:2px solid var(--gold-light)">
+      <h4 class="serif" style="font-size:22px;font-weight:500;color:var(--charcoal);margin-bottom:8px">By Train</h4>
+      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.8;font-weight:300">The nearest railway station is Chandigarh Junction (CDG), approximately <strong style="font-weight:600;color:var(--text-dark)">50 km</strong> from Ramada Kasauli. The drive takes around <strong style="font-weight:600;color:var(--text-dark)">1.5 hours</strong>. Taxis and Ubers can be easily arranged from the station.</p>
+    </div>
+    <div class="reveal delay-2" style="margin-bottom:36px;padding-left:24px;border-left:2px solid var(--gold-light)">
+      <h4 class="serif" style="font-size:22px;font-weight:500;color:var(--charcoal);margin-bottom:8px">By Road</h4>
+      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.8;font-weight:300">From Indira Gandhi International Airport Terminal 3 (DEL), Ramada Kasauli is approximately <strong style="font-weight:600;color:var(--text-dark)">325 km</strong>, with an estimated travel time of <strong style="font-weight:600;color:var(--text-dark)">6 hours</strong>. Pre-booked cabs as well as Ubers are convenient options for this route.</p>
+    </div>
+
+    <div class="reveal delay-3" style="background:linear-gradient(135deg,var(--burgundy-dark),var(--burgundy));padding:40px;text-align:center;margin-top:40px">
+      <p class="sans" style="font-size:16px;color:var(--cream);font-weight:300;line-height:1.8">For any travel, accommodation, room allocation inquiries, or special requests for assistance, please contact the wedding planner at <strong style="font-weight:600;letter-spacing:1px">+91 93134 64284</strong>.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <p class="script" style="font-size:36px;color:var(--gold);margin-bottom:4px">Ananmay & Jennifer</p>
+  <p class="sans" style="font-size:12px;letter-spacing:3px;color:rgba(255,255,255,.4);font-weight:200;text-transform:uppercase">June 4 – 6, 2026 · Kasauli, India</p>
+  <div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,.3))"></div><div class="diamond" style="border-color:rgba(201,168,76,.3)"></div><div class="line" style="background:linear-gradient(90deg,rgba(201,168,76,.3),transparent)"></div></div>
+  <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
+    <button class="nav-link" style="font-size:11px;color:rgba(255,255,255,.4)" onclick="window.location.href='index.html'">Home</button>
+    <button class="nav-link" style="font-size:11px;color:rgba(255,255,255,.4)" onclick="window.location.href='events.html'">Events</button>
+    <button class="nav-link" style="font-size:11px;color:rgba(255,255,255,.4)" onclick="window.location.href='accommodations.html'">Stay & Travel</button>
+    <button class="nav-link" style="font-size:11px;color:rgba(255,255,255,.4)" onclick="window.location.href='our-story.html'">Our Story</button>
+    <button class="nav-link" style="font-size:11px;color:rgba(255,255,255,.4)" onclick="window.location.href='rsvp.html'">RSVP</button>
+  </div>
+  <p class="sans" style="font-size:13px;color:rgba(255,255,255,.65);font-weight:300;letter-spacing:1px"><a href="mailto:ananmayandjennifer@gmail.com" style="color:var(--gold-light);text-decoration:none;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">ananmayandjennifer@gmail.com</a> · <a href="tel:+919313464284" style="color:var(--gold-light);text-decoration:none;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">+91 93134 64284</a> · Made with love by Jenny & Anny</p>
+  <p class="sans" style="font-size:13px;color:rgba(255,255,255,.4);font-weight:300;letter-spacing:1px;margin-top:8px">#AnanmayWedsJennifer</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

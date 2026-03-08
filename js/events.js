@@ -29,3 +29,7 @@ function buildEvents() {
   });
   setTimeout(initReveals, 50);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('eventsContent')) buildEvents();
+});
