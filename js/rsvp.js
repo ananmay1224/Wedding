@@ -56,6 +56,7 @@ function unlockRSVP(e) {
 function toggleAttendance() {
   const attending = document.getElementById('attendSelect').value === 'yes';
   document.getElementById('attendingFields').style.display = attending ? 'block' : 'none';
+  document.getElementById('primaryPhone').required = attending;
 }
 
 // ── Additional guests ──
@@ -74,12 +75,11 @@ function createGuestBlock(n) {
     <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--warm-gray);text-transform:uppercase;font-weight:300;margin-bottom:20px">Guest ${n}</p>
     <div class="form-group"><label class="form-label">Full Name *</label><input type="text" required placeholder="Guest's full name" name="g${n}_name"></div>
     <div class="form-group"><label class="form-label">Age Group *</label>
-      <select required name="g${n}_age">
-        <option value="">Select age group</option>
-        <option value="0-5">0 – 5</option>
-        <option value="6-11">6 – 11</option>
-        <option value="12+">12+</option>
-      </select>
+      <div style="display:flex;gap:24px;margin-top:4px">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;color:var(--charcoal)"><input type="radio" name="g${n}_age" value="0-5" style="accent-color:var(--burgundy);width:16px;height:16px;cursor:pointer"> 0 – 5</label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;color:var(--charcoal)"><input type="radio" name="g${n}_age" value="6-11" style="accent-color:var(--burgundy);width:16px;height:16px;cursor:pointer"> 6 – 11</label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;color:var(--charcoal)"><input type="radio" name="g${n}_age" value="12+" checked style="accent-color:var(--burgundy);width:16px;height:16px;cursor:pointer"> 12+</label>
+      </div>
     </div>
     <div class="form-group"><label class="form-label">Email <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="email" placeholder="email@example.com" name="g${n}_email"></div>
     <div class="form-group"><label class="form-label">Phone <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" placeholder="+91 XXXXX XXXXX" name="g${n}_phone"></div>
@@ -122,7 +122,7 @@ async function submitRSVP(e) {
     }
     guests.push({
       name:       form.querySelector(`[name="g${i}_name"]`)?.value || '',
-      age:        form.querySelector(`[name="g${i}_age"]`)?.value || '',
+      age:        form.querySelector(`[name="g${i}_age"]:checked`)?.value || '',
       email:      form.querySelector(`[name="g${i}_email"]`)?.value || '',
       phone:      form.querySelector(`[name="g${i}_phone"]`)?.value || '',
       dietary:    form.querySelector(`[name="g${i}_dietary"]`)?.value || '',
@@ -143,7 +143,7 @@ async function submitRSVP(e) {
     name:     document.getElementById('primaryName').value,
     email:    document.getElementById('primaryEmail').value,
     phone:    document.getElementById('primaryPhone').value,
-    age:      document.getElementById('primaryAge').value,
+    age:      (document.querySelector('[name="primaryAge"]:checked') || {}).value || '',
     attending,
     dietary:  attending === 'yes' ? (document.getElementById('primaryDietary').value || '') : '',
     message:  document.getElementById('messageField').value,
@@ -185,4 +185,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!document.getElementById('rsvpGate')) return;
   document.getElementById('attendSelect').addEventListener('change', toggleAttendance);
   document.getElementById('additionalGuestCount').addEventListener('change', updateAdditionalGuests);
+  toggleAttendance();
 });
