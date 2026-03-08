@@ -133,6 +133,9 @@ function doPost(e) {
       });
     }
 
+    // Send confirmation email (non-fatal)
+    try { sendConfirmationEmail(d, groupSize); } catch (err) {}
+
     return jsonOut({ ok: true });
   } catch (err) {
     return jsonOut({ ok: false, error: err.message });
@@ -166,6 +169,78 @@ function saveFileToDrive(base64Data, fileName, guestName) {
 function appendRow(sheet, values) {
   sheet.getRange(sheet.getLastRow() + 1, 1, 1, values.length).setValues([values]);
 }
+
+// ── Confirmation email ───────────────────────────────────────────────────────
+function sendConfirmationEmail(d, groupSize) {
+  if (!d.email) return;
+
+  const attending = d.attending === 'yes';
+  const firstName = d.name.split(' ')[0];
+
+  // Build guest list lines
+  let guestLines = '';
+  if (attending) {
+    guestLines += `  • ${d.name} (Age ${d.age})\n`;
+    if (Array.isArray(d.guests) && d.guests.length > 0) {
+      d.guests.forEach(g => { guestLines += `  • ${g.name} (Age ${g.age})\n`; });
+    }
+  }
+
+  const subject = attending
+    ? '✉ RSVP Confirmed — Ananmay & Jennifer\'s Wedding'
+    : '✉ We\'ll Miss You — Ananmay & Jennifer\'s Wedding';
+
+  let body;
+
+  if (attending) {
+    body =
+`Dear ${firstName},
+
+What wonderful news — we're so happy you'll be joining us!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ANANMAY & JENNIFER
+  4 – 6 June 2026  ·  Kasauli, India
+  Ramada by Wyndham, Kasauli
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+YOUR RSVP SUMMARY
+─────────────────
+Attending:    Yes
+Party size:   ${groupSize} ${groupSize === 1 ? 'guest' : 'guests'}
+
+Guests confirmed:
+${guestLines}${d.dietary ? `Dietary notes: ${d.dietary}\n` : ''}${d.message ? `\nYour message to us:\n"${d.message}"\n` : ''}
+─────────────────
+
+More details about the schedule, accommodation, and travel will be shared closer to the date. In the meantime, feel free to reach out to us at any time.
+
+With love & excitement,
+Ananmay & Jennifer
+
+ananmayandjennifer@gmail.com  ·  +91 93134 64284
+#AnanmayWedsJennifer`;
+
+  } else {
+    body =
+`Dear ${firstName},
+
+Thank you for letting us know — you will truly be missed.
+
+We're sad you won't be able to join us in Kasauli, but we'll be thinking of you and hope to celebrate together another time.
+
+If your plans change or you have any questions, please don't hesitate to reach out.
+
+With love,
+Ananmay & Jennifer
+
+ananmayandjennifer@gmail.com  ·  +91 93134 64284
+#AnanmayWedsJennifer`;
+  }
+
+  MailApp.sendEmail({ to: d.email, subject: subject, body: body });
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 function jsonOut(obj) {
   return ContentService
