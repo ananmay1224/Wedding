@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stay & Travel — Ananmay & Jennifer</title>
 <meta name="description" content="Accommodation and travel information for the wedding of Ananmay & Jennifer at Ramada by Wyndham, Kasauli.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-y5y6uX/rVQc5azwC9b9mVv8x0X8iDvkhvPjLFF9wLhn90JrPkEx4RDEYkDqPkFhCFc2CkuhZPNOa0fC5M2njNg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -62,8 +63,26 @@
       <div style="text-align:left;max-width:500px;margin:0 auto">
         <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Check-in</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">June 4, 2026 — 1:30 PM</span></div>
         <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Check-out</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">June 6, 2026 — 11:00 AM</span></div>
-        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Address</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">VXXR+HC2, Sanwara, Kasauli, Himachal Pradesh 173204</span></div>
-        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px"><span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Phone</span><span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">+91 93134 64284</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px">
+          <span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Address</span>
+          <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">
+          <span id="addressText">VXXR+HC2, Sanwara, Kasauli, Himachal Pradesh 173204</span>
+            <button onclick="copyToClipboard('addressText')" style="background:none;border:none;color:var(--gold);cursor:pointer;margin-left:6px">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </span>
+        </div>
+
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px">
+          <span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Phone</span>
+          <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">
+          <span id="phoneText">+91 93134 64284</span>
+            <button onclick="copyToClipboard('phoneText')" style="background:none;border:none;color:var(--gold);cursor:pointer;margin-left:6px">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </span>
+      </div>
+        
       </div>
       <a href="https://www.google.com/maps/dir/?api=1&destination=30.8989375,76.9910625" target="_blank" class="btn btn-burg" style="margin-top:32px">Get Directions</a>
     </div>
@@ -108,5 +127,15 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+function copyToClipboard(elementId) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert(`Copied: ${text}`);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+</script>  
 </body>
 </html>
