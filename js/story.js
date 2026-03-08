@@ -111,7 +111,7 @@ function buildStory() {
           <span class="sc-label">Gurgaon, India · December 2024</span>
           <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">A Journey Into My Roots</h2>
           ${orn(false)}
-          <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">After 12 months apart, we were finally reunited in India. Jennifer got her first real taste of butter chicken and met my family—let's just say all the aunties definitely approved. We spent the winter cozied up in Gurgaon, making sure to explore the incredible world of Indian food, which naturally sparked the age-old debate: Indian food or Chinese food?</p>
+          <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">After 12 months apart, we were finally reunited in India. Jennifer got her first real taste of butter chicken and met my family—she fit right in from the very first meeting. We spent the winter cozied up in Gurgaon, making sure to explore the incredible world of Indian food, which naturally sparked the age-old debate: Indian food or Chinese food?</p>
         </div>
         <div class="sc-grid-4 reveal delay-1">
           <img src="../Pictures/home-couch.jpeg" alt="Family home" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
