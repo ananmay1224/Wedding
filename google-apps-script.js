@@ -6,17 +6,14 @@
  * 1. Go to https://sheets.google.com and create a new spreadsheet.
  *    Name it "Wedding RSVP".
  *
- * 2. Create two sheets (tabs) inside it:
- *    Sheet 1 name: "Primary Guests"
- *    Sheet 2 name: "Additional Guests"
+ * 2. You only need ONE sheet (tab). Rename "Sheet1" to:
+ *    RSVP Responses
  *
- * 3. Add these headers to row 1 of each sheet:
+ * 3. Add these headers to row 1 (columns A → L):
+ *    SubmittedBy | GroupSize | GuestType | Name | AgeGroup | Email | Phone | Dietary | Attending | IDFileURL | Message | SubmittedAt
  *
- *    Primary Guests (A→I):
- *    Name | Email | Phone | AgeGroup | Attending | Dietary | IDFileURL | Message | SubmittedAt
- *
- *    Additional Guests (A→F):
- *    PrimaryName | GuestName | AgeGroup | Email | Phone | Dietary
+ *    TIP: Freeze row 1 (View → Freeze → 1 row) so headers stay visible when scrolling.
+ *    TIP: Add a 13th column "Checked In" for use on the wedding day.
  *
  * 4. In the spreadsheet, go to Extensions → Apps Script.
  *    Delete the default code and paste this entire file.
@@ -32,13 +29,25 @@
  * 7. In js/rsvp.js, replace 'YOUR_APPS_SCRIPT_URL_HERE' with that URL.
  *
  * 8. Done! Commit and push to GitHub.
+ *
+ * ─────────────────────────────────────────
+ * HOW THE SHEET WILL LOOK:
+ *
+ * SubmittedBy   | GroupSize | GuestType | Name          | AgeGroup | Email      | Phone | Dietary | Attending | IDFileURL | Message      | SubmittedAt
+ * Rahul Sharma  | 3         | Primary   | Rahul Sharma  | 12+      | rahul@...  | 91... | veg     | yes       | [link]    | Can't wait!  | 2026-01-15
+ * Rahul Sharma  | 3         | Guest 1   | Priya Sharma  | 12+      |            |       |         |           |           |              |
+ * Rahul Sharma  | 3         | Guest 2   | Aryan Sharma  | 6-11     |            |       |         |           |           |              |
+ * Meera Kapoor  | 1         | Primary   | Meera Kapoor  | 12+      | meera@...  | 91... |         | yes       |           |              | 2026-01-16
+ *
+ * Filter by SubmittedBy to see a whole family.
+ * Sort by Name for alphabetical check-in.
+ * Filter Attending = yes to remove declines.
  */
 
 // ── Config ──────────────────────────────────────────────────────────────────
-const PASSWORD           = 'Kasauli2026';   // Change this to your chosen password
-const PRIMARY_SHEET      = 'Primary Guests';
-const ADDITIONAL_SHEET   = 'Additional Guests';
-const ID_FOLDER_NAME     = 'Wedding RSVP IDs';
+const PASSWORD       = 'Kasauli2026';   // Change this to your chosen password
+const SHEET_NAME     = 'RSVP Responses';
+const ID_FOLDER_NAME = 'Wedding RSVP IDs';
 // ────────────────────────────────────────────────────────────────────────────
 
 const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -60,37 +69,47 @@ function doPost(e) {
   try {
     const d = JSON.parse(e.postData.contents);
 
+    const sheet     = ss.getSheetByName(SHEET_NAME);
+    const groupSize = 1 + (Array.isArray(d.guests) ? d.guests.length : 0);
+
     // Save uploaded ID to Drive (if provided)
     let idUrl = '';
     if (d.idFile && d.idFileName) {
       idUrl = saveFileToDrive(d.idFile, d.idFileName, d.name);
     }
 
-    // Write primary guest row
-    const sheet1 = ss.getSheetByName(PRIMARY_SHEET);
-    sheet1.appendRow([
-      d.name,
-      d.email,
-      d.phone,
-      d.age,
-      d.attending,
-      d.dietary || '',
-      idUrl,
-      d.message || '',
-      new Date().toISOString(),
+    // Primary guest row
+    sheet.appendRow([
+      d.name,                       // A: SubmittedBy
+      groupSize,                    // B: GroupSize
+      'Primary',                    // C: GuestType
+      d.name,                       // D: Name
+      d.age,                        // E: AgeGroup
+      d.email,                      // F: Email
+      d.phone,                      // G: Phone
+      d.dietary    || '',           // H: Dietary
+      d.attending,                  // I: Attending
+      idUrl,                        // J: IDFileURL
+      d.message    || '',           // K: Message
+      new Date().toISOString(),     // L: SubmittedAt
     ]);
 
-    // Write additional guest rows
+    // Additional guest rows
     if (Array.isArray(d.guests) && d.guests.length > 0) {
-      const sheet2 = ss.getSheetByName(ADDITIONAL_SHEET);
-      d.guests.forEach(g => {
-        sheet2.appendRow([
-          d.name,          // link back to primary guest
-          g.name,
-          g.age,
-          g.email   || '',
-          g.phone   || '',
-          g.dietary || '',
+      d.guests.forEach((g, i) => {
+        sheet.appendRow([
+          d.name,               // A: SubmittedBy (links row back to primary)
+          groupSize,            // B: GroupSize
+          'Guest ' + (i + 1),  // C: GuestType
+          g.name,               // D: Name
+          g.age,                // E: AgeGroup
+          g.email   || '',      // F: Email
+          g.phone   || '',      // G: Phone
+          g.dietary || '',      // H: Dietary
+          '',                   // I: Attending (n/a for additional guests)
+          '',                   // J: IDFileURL
+          '',                   // K: Message
+          '',                   // L: SubmittedAt
         ]);
       });
     }
@@ -107,9 +126,9 @@ function saveFileToDrive(base64Data, fileName, guestName) {
     const folders = DriveApp.getFoldersByName(ID_FOLDER_NAME);
     const folder  = folders.hasNext() ? folders.next() : DriveApp.createFolder(ID_FOLDER_NAME);
 
-    const mimeType  = base64Data.split(';')[0].split(':')[1];
-    const base64    = base64Data.split(',')[1];
-    const blob      = Utilities.newBlob(
+    const mimeType = base64Data.split(';')[0].split(':')[1];
+    const base64   = base64Data.split(',')[1];
+    const blob     = Utilities.newBlob(
       Utilities.base64Decode(base64),
       mimeType,
       guestName.replace(/\s+/g, '_') + '_' + fileName
