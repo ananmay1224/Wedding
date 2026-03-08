@@ -145,7 +145,7 @@ async function submitRSVP(e) {
         const err = document.createElement('p');
         err.className = 'sans';
         err.style.cssText = 'color:var(--burgundy);font-size:13px;font-weight:300;text-align:center;margin-top:16px';
-        err.textContent = 'It looks like you\'ve already RSVP\'d. If you need to make changes, please contact us at ananmayandjennifer@gmail.com';
+        err.textContent = 'It looks like you\'ve already RSVP\'d. If you need to make changes, please contact us at ananmayandjennifer@gmail.com or +91 93134 64284';
         err.id = 'duplicateError';
         if (!document.getElementById('duplicateError')) btn.after(err);
       } else {
