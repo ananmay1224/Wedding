@@ -1,7 +1,7 @@
 // ── RSVP — Password-protected form with Google Sheets backend ──
 
 // Replace with your deployed Google Apps Script Web App URL after setup
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_vUlKftBHnQaHIHcLhDxqG9H40s3FPFT53d2GKTwdMd7-JWnqNXlH5R011PDpf7U4/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1HJY_IR133Qv6KOQNpjzBw_bnEik7uC507tG_PIlyLIfxRSGcvQPYlsMugFmzHV8/exec';
 
 // ── Password visibility toggle ──
 function togglePasswordVisibility() {
