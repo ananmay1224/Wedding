@@ -17,11 +17,11 @@
   <div class="nav-inner">
     <a href="../" class="script" style="font-size:28px;color:var(--gold);text-decoration:none">A & J</a>
     <div class="nav-links" style="display:flex">
-      <button class="nav-link" onclick="window.location.href='../'" data-page="home">Home</button>
-      <button class="nav-link" onclick="window.location.href='../events/'" data-page="events">Events</button>
-      <button class="nav-link" onclick="window.location.href='../accommodations/'" data-page="accommodations">Stay & Travel</button>
-      <button class="nav-link" onclick="window.location.href='../our-story/'" data-page="our-story">Our Story</button>
-      <button class="nav-link active" onclick="window.location.href='../rsvp/'" data-page="rsvp">RSVP</button>
+      <button class="nav-link" onclick="window.location.href='../'">Home</button>
+      <button class="nav-link" onclick="window.location.href='../events/'">Events</button>
+      <button class="nav-link" onclick="window.location.href='../accommodations/'">Stay & Travel</button>
+      <button class="nav-link" onclick="window.location.href='../our-story/'">Our Story</button>
+      <button class="nav-link active" onclick="window.location.href='../rsvp/'">RSVP</button>
     </div>
     <button class="burger" id="burgerBtn" onclick="toggleMenu()">
       <span id="b1"></span><span id="b2"></span><span id="b3"></span>
@@ -45,29 +45,122 @@
     <p class="script" style="font-size:28px;color:var(--gold-light);margin-bottom:8px">We Hope You Can Make It</p>
     <h2 class="serif" style="font-size:clamp(28px,5vw,42px);color:var(--cream);font-weight:300;letter-spacing:2px;text-transform:uppercase">RSVP</h2>
     <div class="ornament"><div class="line" style="background:linear-gradient(90deg,transparent,var(--gold-light))"></div><div class="diamond" style="border-color:var(--gold-light)"></div><div class="line" style="background:linear-gradient(90deg,var(--gold-light),transparent)"></div></div>
+    <p class="sans" style="font-size:12px;letter-spacing:2px;color:rgba(255,255,255,.5);font-weight:300;margin-top:4px">Kindly respond by May 1, 2026</p>
+  </div>
+</section>
+
+<!-- ═══════════ PASSWORD GATE ═══════════ -->
+<section id="rsvpGate" class="section" style="background:var(--ivory)">
+  <div style="max-width:440px;margin:0 auto;padding:0 24px;text-align:center">
+    <div class="card reveal" style="padding:48px 40px">
+      <div class="card-corner tl"></div><div class="card-corner tr"></div><div class="card-corner bl"></div><div class="card-corner br"></div>
+      <p class="script" style="font-size:32px;color:var(--gold);margin-bottom:8px">Welcome</p>
+      <p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.8;margin-bottom:32px">Please enter the password from your invitation to access the RSVP form.</p>
+      <form onsubmit="unlockRSVP(event)" style="text-align:left">
+        <div class="form-group">
+          <label class="form-label">Invitation Password</label>
+          <input type="password" id="passwordInput" required placeholder="Enter password" autocomplete="off">
+        </div>
+        <p id="passwordError" style="display:none;color:var(--burgundy);font-size:13px;font-family:'Jost',sans-serif;margin-bottom:16px;font-weight:300"></p>
+        <button type="submit" class="btn btn-burg" style="width:100%;text-align:center">Continue</button>
+      </form>
+      <p class="sans" style="font-size:12px;color:var(--warm-gray);font-weight:300;margin-top:24px">Don't have a password? Contact us at <a href="mailto:ananmayandjennifer@gmail.com" style="color:var(--gold);text-decoration:none">ananmayandjennifer@gmail.com</a></p>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════ RSVP FORM ═══════════ -->
-<section class="section" style="background:var(--ivory)">
-  <div style="max-width:500px;margin:0 auto;padding:0 24px">
-    <form class="reveal" id="rsvpForm" onsubmit="submitRSVP(event)">
-      <div class="form-group"><label class="form-label">Full Name *</label><input type="text" required placeholder="Your full name"></div>
-      <div class="form-group"><label class="form-label">Email *</label><input type="email" required placeholder="your@email.com"></div>
-      <div class="form-group"><label class="form-label">Will you be attending? *</label><select id="attendSelect" onchange="toggleGuestFields()"><option value="yes">Joyfully Accept</option><option value="no">Regretfully Decline</option></select></div>
-      <div id="guestFields">
-        <div class="form-group"><label class="form-label">Number of Guests</label><select><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
-        <div class="form-group"><label class="form-label">Dietary Requirements</label><input type="text" placeholder="Any allergies or dietary preferences"></div>
+<section id="rsvpSection" style="display:none;background:var(--ivory);padding:80px 0">
+  <div style="max-width:600px;margin:0 auto;padding:0 24px">
+
+    <form id="rsvpForm" onsubmit="submitRSVP(event)">
+
+      <!-- ── Your Details ── -->
+      <div style="margin-bottom:40px">
+        <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">Your Details</p>
+        <div class="form-group"><label class="form-label">Full Name *</label><input type="text" id="primaryName" required placeholder="Your full name"></div>
+        <div class="form-group"><label class="form-label">Email *</label><input type="email" id="primaryEmail" required placeholder="your@email.com"></div>
+        <div class="form-group"><label class="form-label">Phone Number *</label><input type="tel" id="primaryPhone" required placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group">
+          <label class="form-label">Age Group *</label>
+          <select id="primaryAge" required>
+            <option value="">Select age group</option>
+            <option value="0-5">0 – 5</option>
+            <option value="6-11">6 – 11</option>
+            <option value="12+">12+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Will you be attending? *</label>
+          <select id="attendSelect">
+            <option value="yes">Joyfully Accept</option>
+            <option value="no">Regretfully Decline</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group"><label class="form-label">Message for the Couple</label><textarea rows="4" placeholder="Share your wishes..." style="resize:vertical"></textarea></div>
+
+      <!-- ── Attending-only fields ── -->
+      <div id="attendingFields">
+
+        <!-- Dietary -->
+        <div style="margin-bottom:40px">
+          <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">Dietary Requirements</p>
+          <div class="form-group"><label class="form-label">Any allergies or dietary preferences? <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="text" id="primaryDietary" placeholder="e.g. vegetarian, nut allergy…"></div>
+        </div>
+
+        <!-- Additional Guests -->
+        <div style="margin-bottom:40px">
+          <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">Additional Guests</p>
+          <p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.7;margin-bottom:24px">Please RSVP for your entire group using this form.</p>
+          <div class="form-group">
+            <label class="form-label">Number of additional guests</label>
+            <select id="additionalGuestCount">
+              <option value="0">Just me</option>
+              <option value="1">+ 1 guest</option>
+              <option value="2">+ 2 guests</option>
+              <option value="3">+ 3 guests</option>
+              <option value="4">+ 4 guests</option>
+              <option value="5">+ 5 guests</option>
+              <option value="6">+ 6 guests</option>
+              <option value="7">+ 7 guests</option>
+              <option value="8">+ 8 guests</option>
+              <option value="9">+ 9 guests</option>
+            </select>
+          </div>
+          <div id="additionalGuestsContainer"></div>
+        </div>
+
+        <!-- ID Upload -->
+        <div style="margin-bottom:40px">
+          <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">ID Upload <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0;font-size:11px">(optional)</span></p>
+          <p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.7;margin-bottom:16px">Upload a copy of your Aadhar card or Passport to help us streamline the check-in process at the venue.</p>
+          <div class="form-group">
+            <label class="form-label">Aadhar / Passport <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input type="file" id="idUpload" accept="image/*,.pdf" style="padding:10px 16px;cursor:pointer">
+          </div>
+          <p class="sans" style="font-size:11px;color:var(--warm-gray);font-weight:300;margin-top:-12px">Accepted: JPG, PNG, PDF · Max 5 MB</p>
+        </div>
+
+      </div>
+
+      <!-- ── Message ── -->
+      <div style="margin-bottom:40px">
+        <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">Message for the Couple</p>
+        <div class="form-group"><label class="form-label">Share your wishes <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><textarea id="messageField" rows="4" placeholder="Write a message for Ananmay & Jennifer…" style="resize:vertical"></textarea></div>
+      </div>
+
       <button type="submit" class="btn btn-burg" style="width:100%;text-align:center">Send RSVP</button>
-      <p class="sans" style="font-size:12px;color:var(--warm-gray);text-align:center;margin-top:16px;font-weight:300">Placeholder: Connect this form to a backend (Google Sheets, Airtable, etc.) to collect responses.</p>
+
     </form>
-    <div id="rsvpThanks" style="display:none;text-align:center;padding:48px 0">
-      <p class="script" style="font-size:42px;color:var(--gold);margin-bottom:16px">Thank You!</p>
-      <p class="serif" style="font-size:20px;color:var(--charcoal);font-weight:300">We've received your RSVP.</p>
-      <p class="sans" style="font-size:16px;color:var(--text-muted);font-weight:300;margin-top:12px">We can't wait to celebrate with you!</p>
+
+    <!-- ── Thank You ── -->
+    <div id="rsvpThanks" style="display:none;text-align:center;padding:64px 0">
+      <p class="script" style="font-size:48px;color:var(--gold);margin-bottom:16px">Thank You!</p>
+      <div class="ornament" style="margin-bottom:24px"><div class="line" style="background:linear-gradient(90deg,transparent,var(--gold))"></div><div class="diamond" style="border-color:var(--gold)"></div><div class="line" style="background:linear-gradient(90deg,var(--gold),transparent)"></div></div>
+      <p class="serif" style="font-size:22px;color:var(--charcoal);font-weight:300;margin-bottom:12px">We've received your RSVP.</p>
+      <p id="thanksMsg" class="sans" style="font-size:16px;color:var(--text-muted);font-weight:300;line-height:1.8">We can't wait to celebrate with you in Kasauli!</p>
     </div>
+
   </div>
 </section>
 
@@ -88,5 +181,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="../js/rsvp.js"></script>
 </body>
 </html>

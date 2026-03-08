@@ -25,17 +25,6 @@ function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-// RSVP (rsvp.html only)
-function toggleGuestFields() {
-  document.getElementById('guestFields').style.display =
-    document.getElementById('attendSelect').value === 'yes' ? 'block' : 'none';
-}
-function submitRSVP(e) {
-  e.preventDefault();
-  document.getElementById('rsvpForm').style.display = 'none';
-  document.getElementById('rsvpThanks').style.display = 'block';
-}
-
 // Intersection observer for scroll reveals
 function initReveals() {
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
