@@ -3,6 +3,22 @@
 // Replace with your deployed Google Apps Script Web App URL after setup
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxi-mJKdNEx_KfAYLR6sHhzydlu5M8J04lL0m8RD0v82I97SulWcqzzwSnkv1pUpzKG/exec';
 
+// ── Password visibility toggle ──
+function togglePasswordVisibility() {
+  const input = document.getElementById('passwordInput');
+  const eyeOn  = document.getElementById('eyeIcon');
+  const eyeOff = document.getElementById('eyeOffIcon');
+  if (input.type === 'password') {
+    input.type = 'text';
+    eyeOn.style.display  = 'none';
+    eyeOff.style.display = '';
+  } else {
+    input.type = 'password';
+    eyeOn.style.display  = '';
+    eyeOff.style.display = 'none';
+  }
+}
+
 // ── Password gate ──
 function unlockRSVP(e) {
   e.preventDefault();

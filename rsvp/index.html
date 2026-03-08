@@ -59,7 +59,13 @@
       <form onsubmit="unlockRSVP(event)" style="text-align:left">
         <div class="form-group">
           <label class="form-label">Invitation Password</label>
-          <input type="password" id="passwordInput" required placeholder="Enter password" autocomplete="off">
+          <div style="position:relative">
+            <input type="password" id="passwordInput" required placeholder="Enter password" autocomplete="off" style="padding-right:48px">
+            <button type="button" onclick="togglePasswordVisibility()" id="pwToggle" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:0;color:var(--warm-gray);line-height:1" aria-label="Toggle password visibility">
+              <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
         </div>
         <p id="passwordError" style="display:none;color:var(--burgundy);font-size:13px;font-family:'Jost',sans-serif;margin-bottom:16px;font-weight:300"></p>
         <button type="submit" class="btn btn-burg" style="width:100%;text-align:center">Continue</button>
@@ -108,6 +114,17 @@
           <div class="form-group"><label class="form-label">Any allergies or dietary preferences? <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label><input type="text" id="primaryDietary" placeholder="e.g. vegetarian, nut allergy…"></div>
         </div>
 
+        <!-- ID Upload -->
+        <div style="margin-bottom:40px">
+          <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">ID Upload <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0;font-size:11px">(optional)</span></p>
+          <p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.7;margin-bottom:16px">Upload a copy of your Aadhar card or Passport to help us streamline the check-in process at the venue.</p>
+          <div class="form-group">
+            <label class="form-label">Aadhar / Passport <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input type="file" id="idUpload" accept="image/*,.pdf" style="padding:10px 16px;cursor:pointer">
+          </div>
+          <p class="sans" style="font-size:11px;color:var(--warm-gray);font-weight:300;margin-top:-12px">Accepted: JPG, PNG, PDF · Max 5 MB</p>
+        </div>
+
         <!-- Additional Guests -->
         <div style="margin-bottom:40px">
           <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">Additional Guests</p>
@@ -128,17 +145,6 @@
             </select>
           </div>
           <div id="additionalGuestsContainer"></div>
-        </div>
-
-        <!-- ID Upload -->
-        <div style="margin-bottom:40px">
-          <p class="sans" style="font-size:10px;letter-spacing:3px;color:var(--burgundy);text-transform:uppercase;font-weight:300;margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)">ID Upload <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0;font-size:11px">(optional)</span></p>
-          <p class="sans" style="font-size:13px;color:var(--text-muted);font-weight:300;line-height:1.7;margin-bottom:16px">Upload a copy of your Aadhar card or Passport to help us streamline the check-in process at the venue.</p>
-          <div class="form-group">
-            <label class="form-label">Aadhar / Passport <span style="color:var(--warm-gray);font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
-            <input type="file" id="idUpload" accept="image/*,.pdf" style="padding:10px 16px;cursor:pointer">
-          </div>
-          <p class="sans" style="font-size:11px;color:var(--warm-gray);font-weight:300;margin-top:-12px">Accepted: JPG, PNG, PDF · Max 5 MB</p>
         </div>
 
       </div>
