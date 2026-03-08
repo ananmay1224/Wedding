@@ -177,68 +177,102 @@ function sendConfirmationEmail(d, groupSize) {
   const attending = d.attending === 'yes';
   const firstName = d.name.split(' ')[0];
 
-  // Build guest list lines
-  let guestLines = '';
-  if (attending) {
-    guestLines += `  • ${d.name} (Age ${d.age})\n`;
-    if (Array.isArray(d.guests) && d.guests.length > 0) {
-      d.guests.forEach(g => { guestLines += `  • ${g.name} (Age ${g.age})\n`; });
-    }
-  }
-
   const subject = attending
-    ? '✉ RSVP Confirmed — Ananmay & Jennifer\'s Wedding'
-    : '✉ We\'ll Miss You — Ananmay & Jennifer\'s Wedding';
+    ? 'See you in Kasauli — RSVP Confirmed'
+    : 'We\'ll miss you — Ananmay & Jennifer\'s Wedding';
 
-  let body;
-
+  // ── Build guest list rows (HTML + plain) ──
+  let guestRowsHtml = '';
+  let guestRowsText = '';
   if (attending) {
-    body =
-`Dear ${firstName},
-
-What wonderful news — we're so happy you'll be joining us!
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ANANMAY & JENNIFER
-  4 – 6 June 2026  ·  Kasauli, India
-  Ramada by Wyndham, Kasauli
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-YOUR RSVP SUMMARY
-─────────────────
-Attending:    Yes
-Party size:   ${groupSize} ${groupSize === 1 ? 'guest' : 'guests'}
-
-Guests confirmed:
-${guestLines}${d.dietary ? `Dietary notes: ${d.dietary}\n` : ''}${d.message ? `\nYour message to us:\n"${d.message}"\n` : ''}
-─────────────────
-
-More details about the schedule, accommodation, and travel will be shared closer to the date. In the meantime, feel free to reach out to us at any time.
-
-With love & excitement,
-Ananmay & Jennifer
-
-ananmayandjennifer@gmail.com  ·  +91 93134 64284
-#AnanmayWedsJennifer`;
-
-  } else {
-    body =
-`Dear ${firstName},
-
-Thank you for letting us know — you will truly be missed.
-
-We're sad you won't be able to join us in Kasauli, but we'll be thinking of you and hope to celebrate together another time.
-
-If your plans change or you have any questions, please don't hesitate to reach out.
-
-With love,
-Ananmay & Jennifer
-
-ananmayandjennifer@gmail.com  ·  +91 93134 64284
-#AnanmayWedsJennifer`;
+    const allGuests = [{ name: d.name, age: d.age }];
+    if (Array.isArray(d.guests)) d.guests.forEach(g => allGuests.push({ name: g.name, age: g.age }));
+    allGuests.forEach(g => {
+      guestRowsHtml += `<tr><td style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#3a3028;padding:5px 0">${g.name}</td><td style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:#8b7355;padding:5px 0 5px 16px">Age ${g.age}</td></tr>`;
+      guestRowsText += `  ${g.name} (Age ${g.age})\n`;
+    });
   }
 
-  MailApp.sendEmail({ to: d.email, subject: subject, body: body });
+  const dietaryHtml = d.dietary
+    ? `<tr><td colspan="2" style="padding-top:16px;border-top:1px solid #e0d5c5"></td></tr><tr><td style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8b7355;padding:4px 0;vertical-align:top">Dietary</td><td style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#3a3028;padding:4px 0 4px 16px">${d.dietary}</td></tr>`
+    : '';
+  const messageHtml = d.message
+    ? `<tr><td colspan="2" style="padding-top:16px;border-top:1px solid #e0d5c5"></td></tr><tr><td colspan="2" style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#6b5a4a;font-style:italic;line-height:1.7;padding:4px 0">"${d.message}"</td></tr>`
+    : '';
+
+  // ── HTML email ──
+  const htmlBody = `<!DOCTYPE html><html><body style="margin:0;padding:0;background:#ede8df;font-family:Georgia,'Times New Roman',serif">
+  <div style="max-width:580px;margin:32px auto;background:#faf7f2">
+
+    <!-- Header -->
+    <div style="background:#4b0e1a;padding:44px 48px 40px;text-align:center">
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:4px;color:#c9a84c;text-transform:uppercase;margin:0 0 14px;font-weight:400">The Wedding of</p>
+      <p style="font-family:Georgia,'Times New Roman',serif;font-size:34px;color:#f5ead6;font-weight:normal;margin:0;letter-spacing:1px">Ananmay &amp; Jennifer</p>
+      <div style="width:48px;height:1px;background:#c9a84c;margin:18px auto"></div>
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:3px;color:rgba(201,168,76,0.65);text-transform:uppercase;margin:0;font-weight:300">4 – 6 June 2026 &nbsp;·&nbsp; Kasauli, India</p>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:44px 48px 36px">
+
+      <p style="font-size:17px;color:#3a3028;line-height:1.8;margin:0 0 12px">Dear ${firstName},</p>
+
+      ${attending
+        ? `<p style="font-size:16px;color:#3a3028;line-height:1.85;margin:0 0 32px">We're so glad you'll be there. Kasauli is going to be special, and having you with us makes it even more so — we genuinely cannot wait.</p>`
+        : `<p style="font-size:16px;color:#3a3028;line-height:1.85;margin:0 0 32px">We're sorry you won't be able to make it, but we're grateful you took the time to let us know. You'll be missed, and we hope we get to celebrate with you soon.</p>`
+      }
+
+      ${attending ? `
+      <!-- Summary box -->
+      <div style="border:1px solid #ddd5c3;background:#f2ece0;padding:28px 32px;margin-bottom:32px">
+        <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:9px;letter-spacing:3px;color:#a08060;text-transform:uppercase;margin:0 0 18px;font-weight:400">Your RSVP at a Glance</p>
+        <table style="width:100%;border-collapse:collapse">
+          <tr>
+            <td style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8b7355;padding:4px 0;vertical-align:top">Attending</td>
+            <td style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#3a3028;padding:4px 0 4px 16px">Yes &nbsp;·&nbsp; Party of ${groupSize}</td>
+          </tr>
+          <tr><td colspan="2" style="padding-top:16px;border-top:1px solid #e0d5c5"></td></tr>
+          <tr>
+            <td style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8b7355;padding:4px 0;vertical-align:top">Guests</td>
+            <td style="padding:4px 0 4px 16px"><table style="border-collapse:collapse">${guestRowsHtml}</table></td>
+          </tr>
+          ${dietaryHtml}
+          ${messageHtml}
+        </table>
+      </div>
+      ` : ''}
+
+      <p style="font-size:15px;color:#6b5a4a;line-height:1.9;margin:0 0 28px;font-style:italic">More details about the schedule, accommodation, and travel will be coming your way soon. In the meantime, feel free to reach out to us any time.</p>
+
+      <p style="font-size:16px;color:#3a3028;line-height:1.5;margin:0 0 2px">With love,</p>
+      <p style="font-size:26px;color:#4b0e1a;margin:0 0 32px;font-weight:normal">Ananmay &amp; Jennifer</p>
+
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#4b0e1a;padding:22px 48px;text-align:center">
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:10px;letter-spacing:3px;color:rgba(201,168,76,0.75);margin:0 0 6px">#AnanmayWedsJennifer</p>
+      <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;color:rgba(245,234,214,0.45);margin:0">
+        <a href="mailto:ananmayandjennifer@gmail.com" style="color:rgba(201,168,76,0.6);text-decoration:none">ananmayandjennifer@gmail.com</a>
+        &nbsp;·&nbsp; +91 93134 64284
+      </p>
+    </div>
+
+  </div>
+</body></html>`;
+
+  // ── Plain-text fallback ──
+  const plainBody = attending
+    ? `Dear ${firstName},\n\nWe're so glad you'll be there. Kasauli is going to be special, and having you with us makes it even more so — we genuinely cannot wait.\n\nYOUR RSVP\nAttending: Yes · Party of ${groupSize}\n\nGuests:\n${guestRowsText}${d.dietary ? `Dietary: ${d.dietary}\n` : ''}${d.message ? `\nYour message: "${d.message}"\n` : ''}\nMore details about the schedule, accommodation, and travel will be coming your way soon.\n\nWith love,\nAnanmay & Jennifer\nananmayandjennifer@gmail.com · +91 93134 64284\n#AnanmayWedsJennifer`
+    : `Dear ${firstName},\n\nWe're sorry you won't be able to make it, but we're grateful you took the time to let us know. You'll be missed, and we hope we get to celebrate with you soon.\n\nWith love,\nAnanmay & Jennifer\nananmayandjennifer@gmail.com · +91 93134 64284\n#AnanmayWedsJennifer`;
+
+  MailApp.sendEmail({
+    to: d.email,
+    bcc: 'ananmayandjennifer@gmail.com',
+    subject: subject,
+    body: plainBody,
+    htmlBody: htmlBody,
+  });
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
