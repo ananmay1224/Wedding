@@ -119,6 +119,10 @@ function buildStory() {
           <img src="../Pictures/raji-mehendi.jpg" alt="Mehendi event" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
           <img src="../Pictures/amby-haldi.jpg" alt="Haldi ceremony" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
         </div>
+        <div class="reveal delay-2" style="margin-top:32px">
+          <img src="../Pictures/family-group-pic.jpeg" alt="The whole family together" style="width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
+          <p class="sc-caption" style="text-align:center;margin-top:10px">The family approved.</p>
+        </div>
       </div>
     </div>
   </div>`;
