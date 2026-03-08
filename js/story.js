@@ -15,7 +15,7 @@ function buildStory() {
     <div class="reveal" style="text-align:center;margin-bottom:60px;max-width:700px;margin-left:auto;margin-right:auto">
       <p class="script" style="font-size:clamp(30px,5vw,48px);color:var(--gold);line-height:1.4;margin-bottom:20px">We each crossed an ocean to find each other.</p>
       ${orn(false)}
-      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300;margin-top:8px">From completely different parts of the world—China and India—we each set out on a journey to the United States, unaware that along the way we would take our first step toward something truly special.</p>
+      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300;margin-top:8px">From completely different parts of the world, China and India, we each set out on a journey to the United States, unaware that along the way we would take our first step toward something truly special.</p>
     </div>
     <div class="sc-split reveal delay-2">
       <div style="text-align:center">
@@ -38,7 +38,7 @@ function buildStory() {
       <span class="sc-label">Champaign, Illinois · January 2022</span>
       <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Champaign, Illinois</h2>
       ${orn(false)}
-      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">St. Patrick was truly a Saint. Our first meeting happened on one of the craziest days at UIUC—Unofficial St. Patrick's Day. What began as one brief, slightly intoxicated conversation unexpectedly sparked everything that followed. From ECON classes to pottery classes in Chicago, we stayed in touch and kept the fun alive.</p>
+      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">St. Patrick was truly a Saint. Our first meeting happened on one of the craziest days at UIUC, Unofficial St. Patrick's Day. What began as one brief, slightly intoxicated conversation unexpectedly sparked everything that followed. From ECON classes to pottery classes in Chicago, we stayed in touch and kept the fun alive.</p>
     </div>
   </div></div>`;
 
@@ -50,7 +50,7 @@ function buildStory() {
       <p class="script" style="font-size:clamp(36px,6vw,60px);color:rgba(232,217,160,.95);margin-bottom:16px;line-height:1.3;text-shadow:0 2px 12px rgba(0,0,0,.5)">Brightest Lights</p>
       <span style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:4px;color:rgba(255,255,255,.85);text-transform:uppercase;font-weight:300;display:block;margin-bottom:36px;text-shadow:0 1px 6px rgba(0,0,0,.6)">Northcoast Music Festival · September 2023</span>
       <h2 class="serif" style="font-size:clamp(26px,4.5vw,42px);font-weight:300;color:var(--cream);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px">The Night Everything Changed</h2>
-      <p class="sans" style="font-size:16px;color:rgba(255,255,255,.72);line-height:1.9;font-weight:300;margin-bottom:48px">Who asks a girl to a music festival on our first real outing? That would be me. Neither of us quite knew what we were saying yes to at the time, but it turned out to be more than just a beautiful day—it became a turning point for us. We began the day surrounded by the hype of EDM beats and ended it holding hands as Lane 8, our favorite chill house artist, had us deep in our feelings. The Uber ride home left us both wondering what life might be like together.</p>
+      <p class="sans" style="font-size:16px;color:rgba(255,255,255,.72);line-height:1.9;font-weight:300;margin-bottom:48px">Who asks a girl to a music festival on our first real outing? That would be me. Neither of us quite knew what we were saying yes to at the time, but it turned out to be more than just a beautiful day; it became a turning point for us. We began the day surrounded by the hype of EDM beats and ended it holding hands as Lane 8, our favorite chill house artist, had us deep in our feelings. The Uber ride home left us both wondering what life might be like together.</p>
       <div style="width:200px;margin:0 auto;transform:rotate(-2.5deg)">
         <div class="polaroid"><img src="../Pictures/northcoast-selfie.jpg" alt="Northcoast selfie" loading="lazy" style="aspect-ratio:3/4;object-fit:cover"></div>
       </div>
@@ -86,10 +86,10 @@ function buildStory() {
   h += `<div class="sc"><div style="background:var(--cream-dark);padding:100px 24px;text-align:center">
     <div class="reveal" style="max-width:680px;margin:0 auto">
       <div style="width:40px;height:1px;background:var(--gold);opacity:.35;margin:0 auto 40px"></div>
-      <span class="sc-label" style="color:var(--warm-gray)">January 2024 — 2026</span>
+      <span class="sc-label" style="color:var(--warm-gray)">January 2024 – 2026</span>
       <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Worlds Apart</h2>
       ${orn(false)}
-      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">I eventually had to leave our beautiful life in Chicago and return to India. What followed was an aching, nearly three-year stretch of long distance. There were many tears and countless emotional moments, but we carried on. We found ways to keep our bond alive—playing Call of Duty together and streaming movies on our cozy little Discord server. Somehow, we always found a way to keep going, because we both knew it was worth it.</p>
+      <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">I eventually had to leave our beautiful life in Chicago and return to India. What followed was an aching, nearly three-year stretch of long distance. There were many tears and countless emotional moments, but we carried on. We found ways to keep our bond alive by playing Call of Duty together and streaming movies on our cozy little Discord server. Somehow, we always found a way to keep going, because we both knew it was worth it.</p>
       <div style="width:40px;height:1px;background:var(--gold);opacity:.35;margin:40px auto 0"></div>
     </div>
   </div></div>`;
@@ -111,7 +111,7 @@ function buildStory() {
           <span class="sc-label">Gurgaon, India · December 2024</span>
           <h2 class="serif" style="font-size:clamp(28px,5vw,44px);font-weight:300;color:var(--charcoal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">A Journey Into My Roots</h2>
           ${orn(false)}
-          <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">After 12 months apart, we were finally reunited in India. Jennifer got her first real taste of butter chicken and met my family—she fit right in from the very first meeting. We spent the winter cozied up in Gurgaon, making sure to explore the incredible world of Indian food, which naturally sparked the age-old debate: Indian food or Chinese food?</p>
+          <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300">After 12 months apart, we were finally reunited in India. Jennifer got her first real taste of butter chicken and met my family. She fit right in from the very first meeting. We spent the winter cozied up in Gurgaon, making sure to explore the incredible world of Indian food, which naturally sparked the age-old debate: Indian food or Chinese food?</p>
         </div>
         <div class="sc-grid-4 reveal delay-1">
           <img src="../Pictures/home-couch.jpeg" alt="Family home" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy">
@@ -138,7 +138,7 @@ function buildStory() {
         ${orn(true)}
       </div>
       <div style="padding-top:16px">
-        <p class="sans" style="font-size:16px;color:rgba(255,255,255,.92);line-height:1.9;font-weight:300;text-shadow:0 1px 6px rgba(0,0,0,.6)">I decided I had spent enough time in the gray and chose a ring. I flew to China to visit Jennifer, where she had planned a beautiful trip for me—introducing me to the elegance of her culture and, of course, the incredible food. One cozy evening, surrounded by serene views and after perhaps a little too much wine, I launched into a ten-minute improvised speech that left Jennifer slightly confused—until I finally pulled out the ring. In that moment, she leaped into my arms with tears of joy.</p>
+        <p class="sans" style="font-size:16px;color:rgba(255,255,255,.92);line-height:1.9;font-weight:300;text-shadow:0 1px 6px rgba(0,0,0,.6)">I decided I had spent enough time in the gray and chose a ring. I flew to China to visit Jennifer, where she had planned a beautiful trip for me, introducing me to the elegance of her culture and, of course, the incredible food. One cozy evening, surrounded by serene views and after perhaps a little too much wine, I launched into a ten-minute improvised speech that left Jennifer slightly confused—until I finally pulled out the ring. In that moment, she leaped into my arms with tears of joy.</p>
       </div>
     </div>
   </div>`;
