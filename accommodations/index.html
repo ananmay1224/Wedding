@@ -77,30 +77,34 @@
           <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">June 6, 2026 — 11:00 AM</span>
         </div>
 
-        <!-- Address with copy icon -->
+        <!-- Address with copy button -->
         <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px;align-items:center">
           <span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Address</span>
-          <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300;display:flex;align-items:center;gap:6px">
-            <span id="addressText">VXXR+HC2, Sanwara, Kasauli, Himachal Pradesh 173204</span>
+          <span style="display:flex;align-items:center;gap:6px;position:relative">
+            <span id="addressText" class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">
+              VXXR+HC2, Sanwara, Kasauli, Himachal Pradesh 173204
+            </span>
             <button class="copy-btn" onclick="copyToClipboard('addressText', this)" style="background:none;border:none;color:var(--gold);cursor:pointer;padding:2px;position:relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
-              <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
-            </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
+                <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
+              </svg>
             </button>
           </span>
         </div>
         
-        <!-- Phone with copy icon -->
+        <!-- Phone with copy button -->
         <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);flex-wrap:wrap;gap:8px;align-items:center">
           <span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Phone</span>
-          <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300;display:flex;align-items:center;gap:6px">
-            <span id="phoneText">+91 93134 64284</span>
+          <span style="display:flex;align-items:center;gap:6px;position:relative">
+            <span id="phoneText" class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300">
+              +91 93134 64284
+            </span>
             <button class="copy-btn" onclick="copyToClipboard('phoneText', this)" style="background:none;border:none;color:var(--gold);cursor:pointer;padding:2px;position:relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
-              <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
-            </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
+                <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
+              </svg>
             </button>
           </span>
         </div>
