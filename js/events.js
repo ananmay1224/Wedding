@@ -5,7 +5,7 @@ function buildEvents() {
   const days = [
     { day:"Day One — June 4, 2026", items:[
       {time:"1:30 PM",name:"Check-in & Welcome Lunch",desc:"Arrive at Ramada by Wyndham, Kasauli. Settle into your rooms, relish a welcome lunch, and soak in the refreshing mountain air.",attire:"Casual / Travel comfortable",color:"var(--cream-dark)"},
-      {time:"4:30 PM",name:"Mehendi & High Tea",desc:"Join us for a vibrant evening of mehendi, music, and celebration. Adorn your hands with beautiful henna designs while savoring a delightful high tea as we begin the wedding festivities.",attire:"Festive Indian — bright colors, florals, greens and yellows welcome",color:"#2D5A3D"},
+      {time:"4:30 PM",name:"Mehendi & High Tea",desc:"Join us for a vibrant evening of mehendi, music, and celebration. Adorn your hands with beautiful henna designs while savoring a delightful high tea as we begin the wedding festivities.",attire:"Festive Indian — bright colors, florals, greens and blues welcome",color:"#2D5A3D"},
       {time:"8:00 PM",name:"Sangeet, Cocktails & Dinner",desc:"Get ready for a spirited evening of music, dance performances, and celebration. Enjoy cocktails and dinner as we gather to celebrate and dance the night away!",attire:"Semi-formal / Glamorous Indian or Western — bold, sparkly, statement pieces",color:"#5B2D8E"},
     ]},
     { day:"Day Two — June 5, 2026", items:[
