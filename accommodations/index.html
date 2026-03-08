@@ -82,11 +82,11 @@
           <span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Address</span>
           <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300;display:flex;align-items:center;gap:6px">
             <span id="addressText">VXXR+HC2, Sanwara, Kasauli, Himachal Pradesh 173204</span>
-            <button onclick="copyToClipboard('addressText', this)" style="background:none;border:none;color:var(--gold);cursor:pointer;padding:2px">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
-                <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
-              </svg>
+            <button class="copy-btn" onclick="copyToClipboard('addressText', this)" style="background:none;border:none;color:var(--gold);cursor:pointer;padding:2px;position:relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
+              <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
+            </svg>
             </button>
           </span>
         </div>
@@ -96,11 +96,11 @@
           <span class="sans" style="font-size:12px;letter-spacing:2px;color:var(--warm-gray);text-transform:uppercase">Phone</span>
           <span class="sans" style="font-size:16px;color:var(--text-dark);font-weight:300;display:flex;align-items:center;gap:6px">
             <span id="phoneText">+91 93134 64284</span>
-            <button onclick="copyToClipboard('phoneText', this)" style="background:none;border:none;color:var(--gold);cursor:pointer;padding:2px">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
-                <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
-              </svg>
+            <button class="copy-btn" onclick="copyToClipboard('phoneText', this)" style="background:none;border:none;color:var(--gold);cursor:pointer;padding:2px;position:relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M10 1H3a2 2 0 0 0-2 2v10h1V3a1 1 0 0 1 1-1h7V1z"/>
+              <path d="M13 3H6a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h7a2 2 0 0 0 2-2V4a1 1 0 0 0-1-1zm-1 11H6V4h6v10z"/>
+            </svg>
             </button>
           </span>
         </div>
@@ -157,26 +157,29 @@
   navigator.clipboard.writeText(text).then(() => {
     // Flash the icon grey
     const originalColor = button.style.color;
-    button.style.color = "grey"; // temporarily grey out
-    setTimeout(() => button.style.color = originalColor, 1000); // revert after 1s
+    button.style.color = "grey";
+    setTimeout(() => button.style.color = originalColor, 1000);
 
-    // Optional: tooltip text
-    if (!button.querySelector(".copied-text")) {
-      const span = document.createElement("span");
-      span.className = "copied-text";
-      span.innerText = "Copied!";
-      span.style.fontSize = "12px";
-      span.style.marginLeft = "6px";
-      span.style.color = "var(--gold)";
-      span.style.opacity = "1";
-      span.style.transition = "opacity 0.5s";
-      button.parentNode.appendChild(span);
-      setTimeout(() => { span.style.opacity = "0"; }, 1200); // fade out
-      setTimeout(() => { span.remove(); }, 1800); // remove completely
-    }
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
-  });
+    // Add a floating tooltip above the icon
+    const tooltip = document.createElement("span");
+    tooltip.innerText = "Copied!";
+    tooltip.style.position = "absolute";
+    tooltip.style.top = "-20px";
+    tooltip.style.left = "50%";
+    tooltip.style.transform = "translateX(-50%)";
+    tooltip.style.background = "var(--gold)";
+    tooltip.style.color = "white";
+    tooltip.style.fontSize = "10px";
+    tooltip.style.padding = "2px 4px";
+    tooltip.style.borderRadius = "3px";
+    tooltip.style.opacity = "1";
+    tooltip.style.transition = "opacity 0.5s";
+
+    button.appendChild(tooltip);
+
+    setTimeout(() => { tooltip.style.opacity = "0"; }, 1000);
+    setTimeout(() => { tooltip.remove(); }, 1500);
+  }).catch(err => console.error(err));
 }
 </script>
 
