@@ -242,7 +242,7 @@ function sendConfirmationEmail(d, groupSize) {
       </div>
       ` : ''}
 
-      <p style="font-size:15px;color:#6b5a4a;line-height:1.9;margin:0 0 28px;font-style:italic">More details about the schedule, accommodation, and travel will be coming your way soon. In the meantime, feel free to reach out to us any time.</p>
+      <p style="font-size:15px;color:#6b5a4a;line-height:1.9;margin:0 0 28px;font-style:italic">Details about the schedule, accommodation, and travel are all available on our website at <a href="https://www.ananmayandjennifer.com" style="color:#4b0e1a;text-decoration:none;border-bottom:1px solid rgba(75,14,26,0.3)">www.ananmayandjennifer.com</a>. Feel free to reach out to us any time.</p>
 
       <p style="font-size:16px;color:#3a3028;line-height:1.5;margin:0 0 2px">With love,</p>
       <p style="font-size:26px;color:#4b0e1a;margin:0 0 32px;font-weight:normal">Ananmay &amp; Jennifer</p>
@@ -263,7 +263,7 @@ function sendConfirmationEmail(d, groupSize) {
 
   // ── Plain-text fallback ──
   const plainBody = attending
-    ? `Dear ${firstName},\n\nWe're so glad you'll be there. Kasauli is going to be special, and having you with us makes it even more so — we genuinely cannot wait.\n\nYOUR RSVP\nAttending: Yes · Party of ${groupSize}\n\nGuests:\n${guestRowsText}${d.dietary ? `Dietary: ${d.dietary}\n` : ''}${d.message ? `\nYour message: "${d.message}"\n` : ''}\nMore details about the schedule, accommodation, and travel will be coming your way soon.\n\nWith love,\nAnanmay & Jennifer\nananmayandjennifer@gmail.com · +91 93134 64284\n#AnanmayWedsJennifer`
+    ? `Dear ${firstName},\n\nWe're so glad you'll be there. Kasauli is going to be special, and having you with us makes it even more so — we genuinely cannot wait.\n\nYOUR RSVP\nAttending: Yes · Party of ${groupSize}\n\nGuests:\n${guestRowsText}${d.dietary ? `Dietary: ${d.dietary}\n` : ''}${d.message ? `\nYour message: "${d.message}"\n` : ''}\nDetails about the schedule, accommodation, and travel are available on our website: www.ananmayandjennifer.com. Feel free to reach out to us any time.\n\nWith love,\nAnanmay & Jennifer\nananmayandjennifer@gmail.com · +91 93134 64284\n#AnanmayWedsJennifer`
     : `Dear ${firstName},\n\nWe're sorry you won't be able to make it, but we're grateful you took the time to let us know. You'll be missed, and we hope we get to celebrate with you soon.\n\nWith love,\nAnanmay & Jennifer\nananmayandjennifer@gmail.com · +91 93134 64284\n#AnanmayWedsJennifer`;
 
   MailApp.sendEmail({
