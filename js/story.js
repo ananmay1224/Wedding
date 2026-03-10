@@ -17,17 +17,38 @@ function buildStory() {
       ${orn(false)}
       <p class="sans" style="font-size:16px;color:var(--text-muted);line-height:1.9;font-weight:300;margin-top:8px">From completely different parts of the world, China and India, we each set out on a journey to the United States, unaware that along the way we would take our first step toward something truly special.</p>
     </div>
-    <div class="sc-split reveal delay-2">
-      <div style="text-align:center">
-        <span class="sc-label">Jennifer · China</span>
-        <img src="../Pictures/little-jenny-4.jpg" alt="Little Jennifer" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:12px" loading="lazy">
-        <div style="width:85%;margin:0 auto"><img src="../Pictures/little-jenny-family.jpeg" alt="Little Jennifer with family" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
+    <div class="sc-desktop-only">
+      <div class="sc-film-strip reveal delay-2">
+        <div class="sc-film-strip-item">
+          <span class="sc-label">Jennifer · China</span>
+          <img src="../Pictures/little-jenny-4.jpg" alt="Little Jennifer" style="height:400px;object-position:center top" loading="lazy">
+        </div>
+        <div class="sc-film-strip-item">
+          <img src="../Pictures/little-jenny-family.jpeg" alt="Little Jennifer with family" style="height:275px;object-position:center" loading="lazy">
+        </div>
+        <div class="sc-film-strip-item">
+          <span class="sc-label">Ananmay · India</span>
+          <img src="../Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="height:400px;object-position:center top" loading="lazy">
+        </div>
+        <div class="sc-film-strip-item">
+          <img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="height:275px;object-position:center top" loading="lazy">
+          <p class="sc-caption">Dreaming big, even then.</p>
+        </div>
       </div>
-      <div style="text-align:center">
-        <span class="sc-label">Ananmay · India</span>
-        <img src="../Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:6px" loading="lazy">
-        <p class="sc-caption">Dreaming big, even then.</p>
-        <div style="width:58%;margin:12px auto 0"><img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
+    </div>
+    <div class="sc-mobile-only">
+      <div class="sc-split reveal delay-2">
+        <div style="text-align:center">
+          <span class="sc-label">Jennifer · China</span>
+          <img src="../Pictures/little-jenny-4.jpg" alt="Little Jennifer" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:12px" loading="lazy">
+          <div style="width:85%;margin:0 auto"><img src="../Pictures/little-jenny-family.jpeg" alt="Little Jennifer with family" style="width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="sc-label">Ananmay · India</span>
+          <img src="../Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark);margin-bottom:6px" loading="lazy">
+          <p class="sc-caption">Dreaming big, even then.</p>
+          <div style="width:58%;margin:12px auto 0"><img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--cream-dark)" loading="lazy"></div>
+        </div>
       </div>
     </div>
   </div></div>`;

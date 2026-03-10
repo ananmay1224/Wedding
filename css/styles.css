@@ -240,10 +240,16 @@ footer .nav-link{font-size:13px;color:rgba(255,255,255,.6)}
 .polaroid{background:#fff;padding:10px 10px 32px;box-shadow:0 6px 24px rgba(0,0,0,.15);display:inline-block}
 .polaroid img{display:block;width:100%;object-fit:cover}
 .sc-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sc-desktop-only{display:block}.sc-mobile-only{display:none}
+.sc-film-strip{display:grid;grid-template-columns:1fr 1.4fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;align-items:end}
+.sc-film-strip-item{text-align:center}
+.sc-film-strip-item img{width:100%;object-fit:cover;border:1px solid var(--cream-dark);display:block}
 @media(max-width:768px){
   .sc-bleed{min-height:75vh}
   .sc-split{grid-template-columns:1fr;gap:20px}
   .sc-bleed-content{padding:60px 20px}
   .sc-grid-4{grid-template-columns:1fr 1fr}
   .polaroid{width:120px !important}
+  .sc-desktop-only{display:none}
+  .sc-mobile-only{display:block}
 }
