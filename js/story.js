@@ -31,7 +31,6 @@ function buildStory() {
         <div class="sc-film-divider"></div>
         <div class="sc-film-photo">
           <img src="../Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="height:400px;object-position:center top" loading="lazy">
-          <p class="sc-caption">Dreaming big, even then.</p>
         </div>
         <div class="sc-film-photo">
           <img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="height:275px;object-position:center top" loading="lazy">
