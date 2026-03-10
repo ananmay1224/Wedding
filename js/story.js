@@ -19,20 +19,22 @@ function buildStory() {
     </div>
     <div class="sc-desktop-only">
       <div class="sc-film-strip reveal delay-2">
-        <div class="sc-film-strip-item">
-          <span class="sc-label">Jennifer · China</span>
+        <div class="sc-film-lbl sc-film-lbl-jenny"><span class="sc-label">Jennifer · China</span></div>
+        <div></div>
+        <div class="sc-film-lbl sc-film-lbl-ananmay"><span class="sc-label">Ananmay · India</span></div>
+        <div class="sc-film-photo">
           <img src="../Pictures/little-jenny-4.jpg" alt="Little Jennifer" style="height:400px;object-position:center top" loading="lazy">
         </div>
-        <div class="sc-film-strip-item">
+        <div class="sc-film-photo">
           <img src="../Pictures/little-jenny-family.jpeg" alt="Little Jennifer with family" style="height:275px;object-position:center" loading="lazy">
         </div>
-        <div class="sc-film-strip-item">
-          <span class="sc-label">Ananmay · India</span>
+        <div class="sc-film-divider"></div>
+        <div class="sc-film-photo">
           <img src="../Pictures/little-ananmay-3.jpg" alt="Little Ananmay" style="height:400px;object-position:center top" loading="lazy">
-        </div>
-        <div class="sc-film-strip-item">
-          <img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="height:275px;object-position:center top" loading="lazy">
           <p class="sc-caption">Dreaming big, even then.</p>
+        </div>
+        <div class="sc-film-photo">
+          <img src="../Pictures/little-ananmay-4.jpeg" alt="Young Ananmay" style="height:275px;object-position:center top" loading="lazy">
         </div>
       </div>
     </div>

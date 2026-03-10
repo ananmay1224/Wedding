@@ -241,9 +241,11 @@ footer .nav-link{font-size:13px;color:rgba(255,255,255,.6)}
 .polaroid img{display:block;width:100%;object-fit:cover}
 .sc-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .sc-desktop-only{display:block}.sc-mobile-only{display:none}
-.sc-film-strip{display:grid;grid-template-columns:1fr 1.4fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;align-items:end}
-.sc-film-strip-item{text-align:center}
-.sc-film-strip-item img{width:100%;object-fit:cover;border:1px solid var(--cream-dark);display:block}
+.sc-film-strip{display:grid;grid-template-columns:1fr 1.4fr 28px 1fr 1fr;row-gap:14px;column-gap:16px;max-width:1100px;margin:0 auto}
+.sc-film-lbl{text-align:center}.sc-film-lbl-jenny{grid-column:1/3}.sc-film-lbl-ananmay{grid-column:4/6}
+.sc-film-photo{align-self:end;text-align:center}
+.sc-film-photo img{width:100%;object-fit:cover;border:1px solid var(--cream-dark);display:block}
+.sc-film-divider{grid-column:3;grid-row:2;align-self:stretch;display:flex;align-items:center;justify-content:center}.sc-film-divider::after{content:'';display:block;width:1px;height:70%;background:var(--cream-dark)}
 @media(max-width:768px){
   .sc-bleed{min-height:75vh}
   .sc-split{grid-template-columns:1fr;gap:20px}
